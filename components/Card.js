@@ -30,7 +30,8 @@ export default function Card({
           </h1>
           <div className='text-gray-500'>
             <p className='text-lg'>
-              ₹{price} for {maxGuests} visitors
+              ₹{Intl.NumberFormat('en-IN').format(price)} for {maxGuests}{' '}
+              visitors
             </p>
             <p className='text-gray-350'>{duration} hours guided tour</p>
           </div>
