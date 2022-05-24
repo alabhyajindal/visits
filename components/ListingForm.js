@@ -4,7 +4,7 @@ export default function ListingForm() {
   const [info, setInfo] = useState({});
 
   return (
-    <div className='m-4'>
+    <div className='mt-8 mx-16'>
       <h2 className='text-xl font-medium'>List your Visit</h2>
       <p>Fill out the form below to list a new visit.</p>
       <div className='mt-8 max-w-md flex flex-col gap-4'>
