@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Header from '../../components/Header';
 import Image from 'next/image';
 import { PrismaClient } from '@prisma/client';
@@ -6,8 +7,14 @@ const prisma = new PrismaClient();
 export default function ListedVisit(visit) {
   return (
     <div>
+      <Head>
+        <title>
+          {visit.title}, {visit.location} - Visit
+        </title>
+        <meta name='description' content={visit.description} />
+      </Head>
       <Header />
-      <div className='mx-4 mt-8'>
+      <div className='mx-16 lg:mx-24 xl:mx-32 mt-8'>
         <h1 className='text-3xl lg:text-4xl font-semibold'>{visit.title}</h1>
 
         <div className='mt-2 md:mt-4 xl:mt-6 relative aspect-w-16 aspect-h-9'>

@@ -86,7 +86,7 @@ export default function ListingForm() {
           </label>
         </div>
       </div>
-      <button className='mt-6 bg-purple-500 text-white font-medium px-4 py-2 rounded-md'>
+      <button className='mt-6 bg-purple-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md font-medium transition transform duration-200'>
         Submit
       </button>
     </div>

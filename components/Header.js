@@ -19,16 +19,16 @@ export default function Header() {
       </Link>
 
       {/* Right */}
-      <div className='flex gap-4 text-md lg:text-lg items-center'>
+      <div className='flex gap-4 text-sm items-center'>
         <Link href='/create'>
           <a>
-            <button className='bg-purple-500 text-white rounded-md p-2'>
-              List your Visit
-            </button>
+            <h2 className='font-medium text-gray-600'>List a visit</h2>
           </a>
         </Link>
 
-        <h2>Sign In</h2>
+        <button className='bg-purple-500 hover:bg-gray-600 text-white rounded-md p-2 px-4 font-medium transition transform duration-200'>
+          Sign in
+        </button>
       </div>
     </div>
   );

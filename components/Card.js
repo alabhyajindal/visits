@@ -11,7 +11,7 @@ export default function Card({
   duration,
 }) {
   return (
-    <Link href={`/visits/${id}`}>
+    <a href={`/visits/${id}`} target='_blank'>
       <div className='text-gray-700 rounded-md hover:bg-gray-100 cursor-pointer transition transform duration-200 ease-out p-2'>
         <div className='aspect-h-9 aspect-w-16 relative'>
           <Image
@@ -22,7 +22,7 @@ export default function Card({
           />
         </div>
         <div className='p-2'>
-          <h1 className='text-xl font-medium '>
+          <h1 className='text-xl font-medium text-gray-700'>
             {title},{' '}
             <span className='font-normal text-gray-600 text-lg'>
               {location}
@@ -37,6 +37,6 @@ export default function Card({
           </div>
         </div>
       </div>
-    </Link>
+    </a>
   );
 }
