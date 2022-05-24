@@ -9,12 +9,13 @@ export default function ListedVisit(visit) {
       <Header />
       <div className='mx-4 mt-8'>
         <h1 className='text-3xl lg:text-4xl font-semibold'>{visit.title}</h1>
-        <div className='mt-2 relative aspect-w-16 aspect-h-9'>
+
+        <div className='mt-2 md:mt-4 xl:mt-6 relative aspect-w-16 aspect-h-9'>
           <Image
             src={visit.image}
             layout='fill'
             objectFit='cover'
-            className='rounded-sm'
+            className='rounded-md'
           />
         </div>
         <p className='mt-2 md:text-lg'>{visit.description}</p>

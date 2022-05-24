@@ -12,13 +12,13 @@ export default function Card({
 }) {
   return (
     <Link href={`/visits/${id}`}>
-      <div className='text-gray-700 rounded-sm hover:bg-gray-100 cursor-pointer transition transform duration-200 ease-out p-2'>
+      <div className='text-gray-700 rounded-md hover:bg-gray-100 cursor-pointer transition transform duration-200 ease-out p-2'>
         <div className='aspect-h-9 aspect-w-16 relative'>
           <Image
             src={image}
             layout='fill'
             objectFit='cover'
-            className='rounded-sm'
+            className='rounded-md'
           />
         </div>
         <div className='p-2'>
