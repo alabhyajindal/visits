@@ -10,7 +10,11 @@ export default function Create() {
         <meta name='description' content='Visit' />
       </Head>
       <Header />
-      <ListingForm />
+      <div className='mt-8 mx-16'>
+        <h2 className='text-xl font-medium'>List a visit</h2>
+        <p>Fill out the form below to list a new visit.</p>
+        <ListingForm />
+      </div>
     </div>
   );
 }

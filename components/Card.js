@@ -13,14 +13,16 @@ export default function Card({
   return (
     <a href={`/visits/${id}`} target='_blank'>
       <div className='text-gray-700 rounded-md hover:bg-gray-100 cursor-pointer transition transform duration-200 ease-out p-2'>
-        <div className='aspect-h-9 aspect-w-16 relative'>
-          <Image
-            src={image}
-            layout='fill'
-            objectFit='cover'
-            className='rounded-md'
-          />
-        </div>
+        {image && (
+          <div className='aspect-h-9 aspect-w-16 relative'>
+            <Image
+              src={image}
+              layout='fill'
+              objectFit='cover'
+              className='rounded-md'
+            />
+          </div>
+        )}
         <div className='p-2'>
           <h1 className='text-xl font-medium text-gray-700'>
             {title},{' '}

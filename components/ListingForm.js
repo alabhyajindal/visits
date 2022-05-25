@@ -1,7 +1,13 @@
+import { supabase } from '../client';
+import { nanoid } from 'nanoid';
 import { useState } from 'react';
 
 export default function ListingForm() {
-  const [info, setInfo] = useState({});
+  const [info, setInfo] = useState({
+    id: nanoid(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  });
 
   const updateFormData = function (e) {
     setInfo((prevInfo) =>
@@ -9,10 +15,13 @@ export default function ListingForm() {
     );
   };
 
+  async function submitForm() {
+    const { data, error } = await supabase.from('Visit').insert([info]);
+    setInfo({ id: nanoid(), createdAt: new Date(), updatedAt: new Date() });
+  }
+
   return (
-    <div className='mt-8 mx-16'>
-      <h2 className='text-xl font-medium'>List your Visit</h2>
-      <p>Fill out the form below to list a new visit.</p>
+    <div>
       <div className='mt-8 max-w-md flex flex-col gap-4'>
         <label className='text-gray-700'>
           Title
@@ -104,7 +113,11 @@ export default function ListingForm() {
           </label>
         </div>
       </div>
-      <button className='mt-6 bg-purple-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md font-medium transition transform duration-200'>
+      <button
+        onClick={submitForm}
+        // onClick={addVisit}
+        className='mt-6 bg-purple-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md font-medium transition transform duration-200'
+      >
         Submit
       </button>
     </div>
