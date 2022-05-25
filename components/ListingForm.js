@@ -7,17 +7,36 @@ export default function ListingForm() {
     id: nanoid(),
     createdAt: new Date(),
     updatedAt: new Date(),
+    title: '',
+    description: '',
+    location: '',
+    duration: '',
+    maxGuests: '',
+    price: '',
   });
 
   const updateFormData = function (e) {
-    setInfo((prevInfo) =>
-      setInfo({ ...prevInfo, [e.target.id]: e.target.value })
-    );
+    setInfo((prevInfo) => {
+      return {
+        ...prevInfo,
+        [e.target.id]: e.target.value,
+      };
+    });
   };
 
   async function submitForm() {
     const { data, error } = await supabase.from('Visit').insert([info]);
-    setInfo({ id: nanoid(), createdAt: new Date(), updatedAt: new Date() });
+    setInfo({
+      id: nanoid(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      title: '',
+      description: '',
+      location: '',
+      duration: '',
+      maxGuests: '',
+      price: '',
+    });
   }
 
   return (
@@ -26,6 +45,7 @@ export default function ListingForm() {
         <label className='text-gray-700'>
           Title
           <input
+            value={info.title}
             type='text'
             id='title'
             onChange={(e) => updateFormData(e)}
@@ -43,6 +63,7 @@ export default function ListingForm() {
         <label className='text-gray-700'>
           Description
           <textarea
+            value={info.description}
             id='description'
             onChange={(e) => updateFormData(e)}
             className='mt-1
@@ -58,6 +79,7 @@ export default function ListingForm() {
           <label className='text-gray-700'>
             City
             <input
+              value={info.location}
               id='location'
               onChange={(e) => updateFormData(e)}
               type='text'
@@ -72,6 +94,7 @@ export default function ListingForm() {
           <label className='text-gray-700'>
             Duration (in hours)
             <input
+              value={info.duration}
               type='number'
               id='duration'
               onChange={(e) => updateFormData(e)}
@@ -86,6 +109,7 @@ export default function ListingForm() {
           <label className='text-gray-700'>
             Maximum visitors
             <input
+              value={info.maxGuests}
               type='number'
               id='maxGuests'
               onChange={(e) => updateFormData(e)}
@@ -100,6 +124,7 @@ export default function ListingForm() {
           <label className='text-gray-700'>
             Price
             <input
+              value={info.price}
               type='number'
               id='price'
               onChange={(e) => updateFormData(e)}
