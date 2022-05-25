@@ -11,7 +11,7 @@ export default function Card({
   duration,
 }) {
   return (
-    <a href={`/visits/${id}`} target='_blank'>
+    <a href={`/visits/${id}`} target='_blank' rel='noreferrer'>
       <div className='text-gray-700 rounded-md hover:bg-gray-100 cursor-pointer transition transform duration-200 ease-out p-2'>
         {image && (
           <div className='aspect-h-9 aspect-w-16 relative'>
@@ -20,6 +20,7 @@ export default function Card({
               layout='fill'
               objectFit='cover'
               className='rounded-md'
+              alt={image.title}
             />
           </div>
         )}
