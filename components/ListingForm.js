@@ -13,6 +13,7 @@ export default function ListingForm() {
     duration: '',
     maxGuests: '',
     price: '',
+    image: '',
   });
 
   const updateFormData = function (e) {
@@ -25,8 +26,25 @@ export default function ListingForm() {
   };
 
   async function submitForm() {
-    const { data, error } = await supabase.from('Visit').insert([info]);
-    setInfo({
+    const visitImage = document.getElementById('imageInput').files[0];
+    const imageTitle = nanoid();
+    const imageExtension = '.jpg';
+
+    await supabase.storage
+      .from('visitimages')
+      .upload(`${imageTitle}${imageExtension}`, visitImage);
+
+    const { data, error } = await supabase.from('Visit').insert([
+      {
+        ...info,
+        image: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/visitimages/${imageTitle}${imageExtension}`,
+      },
+    ]);
+    console.log(data);
+
+    //vopujdzggmkpsqocbuhp.supabase.co/storage/v1/object/public/visitimages/JduBKFKk0A64RmqLmkmKb.jpg
+
+    https: setInfo({
       id: nanoid(),
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -36,12 +54,16 @@ export default function ListingForm() {
       duration: '',
       maxGuests: '',
       price: '',
+      image: '',
     });
   }
 
   return (
-    <div>
+    <div className='my-4'>
       <div className='mt-8 max-w-md flex flex-col gap-4'>
+        <label className='text-gray-700'>
+          <input type='file' accept='image/*' id='imageInput' />
+        </label>
         <label className='text-gray-700'>
           Title
           <input
