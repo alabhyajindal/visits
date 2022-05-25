@@ -3,6 +3,12 @@ import { useState } from 'react';
 export default function ListingForm() {
   const [info, setInfo] = useState({});
 
+  const updateFormData = function (e) {
+    setInfo((prevInfo) =>
+      setInfo({ ...prevInfo, [e.target.id]: e.target.value })
+    );
+  };
+
   return (
     <div className='mt-8 mx-16'>
       <h2 className='text-xl font-medium'>List your Visit</h2>
@@ -12,6 +18,8 @@ export default function ListingForm() {
           Title
           <input
             type='text'
+            id='title'
+            onChange={(e) => updateFormData(e)}
             className='
           mt-1
           block
@@ -26,6 +34,8 @@ export default function ListingForm() {
         <label className='text-gray-700'>
           Description
           <textarea
+            id='description'
+            onChange={(e) => updateFormData(e)}
             className='mt-1
           block
           w-full
@@ -39,6 +49,8 @@ export default function ListingForm() {
           <label className='text-gray-700'>
             City
             <input
+              id='location'
+              onChange={(e) => updateFormData(e)}
               type='text'
               className='block
             w-md
@@ -52,6 +64,8 @@ export default function ListingForm() {
             Duration (in hours)
             <input
               type='number'
+              id='duration'
+              onChange={(e) => updateFormData(e)}
               className='block
             w-md
             rounded-md
@@ -64,6 +78,8 @@ export default function ListingForm() {
             Maximum visitors
             <input
               type='number'
+              id='maxGuests'
+              onChange={(e) => updateFormData(e)}
               className='block
           w-md
           rounded-md
@@ -76,6 +92,8 @@ export default function ListingForm() {
             Price
             <input
               type='number'
+              id='price'
+              onChange={(e) => updateFormData(e)}
               className='block
           w-md
           rounded-md
