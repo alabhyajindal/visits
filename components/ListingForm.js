@@ -28,6 +28,7 @@ export default function ListingForm() {
   async function submitForm() {
     const visitImage = document.getElementById('imageInput').files[0];
     const imageTitle = nanoid();
+    // Todo - determine the file extension through regular expression by checking the uploaded file
     const imageExtension = '.jpg';
 
     await supabase.storage
@@ -40,11 +41,8 @@ export default function ListingForm() {
         image: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/visitimages/${imageTitle}${imageExtension}`,
       },
     ]);
-    console.log(data);
 
-    //vopujdzggmkpsqocbuhp.supabase.co/storage/v1/object/public/visitimages/JduBKFKk0A64RmqLmkmKb.jpg
-
-    https: setInfo({
+    setInfo({
       id: nanoid(),
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -60,10 +58,7 @@ export default function ListingForm() {
 
   return (
     <div className='my-4'>
-      <div className='mt-8 max-w-md flex flex-col gap-4'>
-        <label className='text-gray-700'>
-          <input type='file' accept='image/*' id='imageInput' />
-        </label>
+      <div className='max-w-md flex flex-col gap-4'>
         <label className='text-gray-700'>
           Title
           <input
@@ -97,7 +92,7 @@ export default function ListingForm() {
           focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50'
           />
         </label>
-        <div className='grid grid-cols-2 gap-y-4'>
+        <div className='grid md:grid-cols-2 gap-y-4 gap-x-4'>
           <label className='text-gray-700'>
             City
             <input
@@ -106,7 +101,7 @@ export default function ListingForm() {
               onChange={(e) => updateFormData(e)}
               type='text'
               className='block
-            w-md
+            w-auto
             rounded-md
             border-gray-300
             shadow-sm
@@ -159,6 +154,14 @@ export default function ListingForm() {
             />
           </label>
         </div>
+        <label className='text-gray-700'>
+          <input
+            type='file'
+            accept='image/*'
+            id='imageInput'
+            className='text-gray-700'
+          />
+        </label>
       </div>
       <button
         onClick={submitForm}
