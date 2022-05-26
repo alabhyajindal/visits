@@ -9,9 +9,7 @@ export default function Header() {
   }
 
   return (
-    <div className='shadow-md py-4 px-8 sticky flex items-center justify-between'>
-      {/* Sign In Modal */}
-      <SignIn className='' />
+    <div className='shadow-md py-4 px-8 sticky flex items-center justify-between z-50'>
       {/* Left */}
       <Link href='/'>
         <a>
@@ -41,6 +39,8 @@ export default function Header() {
           Sign in
         </button>
       </div>
+      {/* Sign In Modal */}
+      <SignIn />
     </div>
   );
 }
