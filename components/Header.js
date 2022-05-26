@@ -1,9 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import SignIn from './SignIn';
 
 export default function Header() {
+  // Function to show the Sign in modal when the "Sign in" button is clicked
+  function showModal() {
+    document.getElementById('modal-cont').classList.remove('hidden');
+  }
+
   return (
     <div className='shadow-md py-4 px-8 sticky flex items-center justify-between'>
+      {/* Sign In Modal */}
+      <SignIn className='' />
       {/* Left */}
       <Link href='/'>
         <a>
@@ -26,7 +34,10 @@ export default function Header() {
           </a>
         </Link>
 
-        <button className='bg-purple-500 hover:bg-gray-600 text-white rounded-md p-2 px-4 font-medium transition transform duration-200'>
+        <button
+          onClick={showModal}
+          className='bg-purple-500 hover:bg-gray-600 text-white rounded-md p-2 px-4 font-medium transition transform duration-200'
+        >
           Sign in
         </button>
       </div>
