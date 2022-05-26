@@ -8,12 +8,14 @@ export default function SignIn() {
   const [email, setEmail] = useState('');
 
   // Function to hide the Sign in modal when the XIcon is clicked
-  function hideModal() {
+  function hideModal(e) {
     const modal = document.getElementById('modal-cont');
     modal.classList.add('hidden');
     modal.classList.remove('flex');
 
     setEmail('');
+
+    console.log(e);
   }
 
   function handleEmailInput(e) {
@@ -44,6 +46,7 @@ export default function SignIn() {
         } else {
           toast.dismiss(toastId);
           notificationModal.classList.remove('hidden');
+          notificationModal.classList.add('flex');
           signInModal.classList.add('hidden');
           setEmail('');
         }
@@ -56,7 +59,6 @@ export default function SignIn() {
     }
   }
   return (
-    // Add the class of 'hidden' to the first div below when done designing the modal window
     <div
       className='hidden fixed inset-0 mx-auto items-center bg-opacity-75 bg-gray-500'
       id='modal-cont'
@@ -67,8 +69,8 @@ export default function SignIn() {
             onClick={hideModal}
             className='cursor-pointer h-6 absolute top-2 right-2 text-gray-700'
           />
-          <h1 className='text-gray-700 text-xl font-bold'>
-            Create your account
+          <h1 className='text-gray-700 text-xl font-medium'>
+            Welcome to Visit
           </h1>
           <form className='flex flex-col gap-4 items-center'>
             <input
@@ -88,14 +90,21 @@ export default function SignIn() {
               id='email-submit-btn'
               type='submit'
               onClick={handleSignUp}
-              className='bg-purple-500 hover:bg-gray-600 text-white rounded-md p-2 px-4 font-medium transition transform duration-200'
+              className='bg-purple-500 hover:bg-gray-600 text-white rounded-md p-2 px-4 font-medium transition transform duration-200 hover:shadow-md hover:shadow-purple-200'
             >
               Sign in
             </button>
             <Toaster />
           </form>
         </div>
-        <div id='notification-modal' className='relative hidden'>
+        <div
+          className='flex-col gap-4 items-center hidden'
+          id='notification-modal'
+        >
+          <XIcon
+            onClick={hideModal}
+            className='cursor-pointer h-6 absolute top-2 right-2 text-gray-700'
+          />
           <h2
             id='notification-modal'
             className='text-gray-700 text-xl font-medium'

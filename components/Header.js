@@ -85,7 +85,7 @@ export default function Header() {
 
         <button
           onClick={showModal}
-          className='bg-purple-500 hover:bg-gray-600 text-white rounded-md p-2 px-4 font-medium transition transform duration-200'
+          className='bg-purple-500 hover:bg-gray-600 text-white rounded-md p-2 px-4 font-medium transition transform duration-200 hover:shadow-md hover:shadow-purple-200'
         >
           Sign in
         </button>
