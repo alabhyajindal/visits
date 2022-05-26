@@ -16,7 +16,7 @@ export default function SignIn() {
   function handleEmailInput(e) {
     const btn = document.getElementById('email-submit-btn');
     setEmail(e.target.value);
-    if (isEmail(email)) {
+    if (isEmail(e.target.value)) {
       btn.classList.add('bg-purple-500');
       btn.classList.add('text-white');
       btn.classList.add('hover:bg-gray-600');
@@ -54,7 +54,7 @@ export default function SignIn() {
             type='email'
             placeholder='Email'
             value={email}
-            onChange={(e) => handleEmailInput(e)}
+            onChange={handleEmailInput}
             className='mt-1
           block
           w-full
