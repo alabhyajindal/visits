@@ -2,23 +2,20 @@ import { supabase } from '../client';
 import { useState } from 'react';
 import isEmail from 'validator/lib/isEmail';
 import toast, { Toaster } from 'react-hot-toast';
-import { Transition } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/outline';
 
 export default function SignIn() {
   const [email, setEmail] = useState('');
 
-  // State to determine if the modal window is open
-  const [isShowing, setIsShowing] = useState(false);
-
   // Function to hide the Sign in modal when the XIcon is clicked
-  function hideModal() {
-    setIsShowing(false);
-  }
+  function hideModal(e) {
+    const modal = document.getElementById('modal-cont');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
 
-  // Function to show the Sign in modal when the "Sign in" button is clicked
-  function showModal() {
-    setIsShowing(true);
+    setEmail('');
+
+    console.log(e);
   }
 
   function handleEmailInput(e) {
@@ -31,7 +28,7 @@ export default function SignIn() {
     }
   }
 
-  async function handleSignIn(e) {
+  async function handleSignUp(e) {
     e.preventDefault();
     let toastId;
     let notificationModal = document.getElementById('notification-modal');
@@ -62,70 +59,60 @@ export default function SignIn() {
     }
   }
   return (
-    <Transition
-      show={isShowing}
-      enter='transition-opacity duration-75'
-      enterFrom='opacity-0'
-      enterTo='opacity-100'
-      leave='transition-opacity duration-150'
-      leaveFrom='opacity-100'
-      leaveTo='opacity-0'
+    <div
+      className='hidden fixed inset-0 mx-auto items-center bg-opacity-75 bg-gray-500'
+      id='modal-cont'
     >
-      <div
-        className='hidden fixed inset-0 mx-auto items-center bg-opacity-75 bg-gray-500'
-        id='modal-cont'
-      >
-        <div className='flex items-center shadow-md relative py-12 px-8 bg-white rounded-md mx-auto'>
-          <div className='flex flex-col gap-4 items-center' id='sign-in-modal'>
-            <XIcon
-              onClick={hideModal}
-              className='cursor-pointer h-6 absolute top-2 right-2 text-gray-700'
-            />
-            <h1 className='text-gray-700 text-xl font-medium'>
-              Welcome to Visit
-            </h1>
-            <form className='flex flex-col gap-4 items-center'>
-              <input
-                type='email'
-                placeholder='Email'
-                value={email}
-                onChange={handleEmailInput}
-                className='mt-1
+      <div className='flex items-center shadow-md relative py-12 px-8 bg-white rounded-md mx-auto'>
+        <div className='flex flex-col gap-4 items-center' id='sign-in-modal'>
+          <XIcon
+            onClick={hideModal}
+            className='cursor-pointer h-6 absolute top-2 right-2 text-gray-700'
+          />
+          <h1 className='text-gray-700 text-xl font-medium'>
+            Welcome to Visit
+          </h1>
+          <form className='flex flex-col gap-4 items-center'>
+            <input
+              type='email'
+              placeholder='Email'
+              value={email}
+              onChange={handleEmailInput}
+              className='mt-1
           block
           w-full
           rounded-md
           border-gray-300
           shadow-sm
           focus:border-purple-300 focus:ring focus:ring-purple-200 focus:ring-opacity-50'
-              />
-              <button
-                id='email-submit-btn'
-                type='submit'
-                onClick={handleSignIn}
-                className='bg-purple-500 hover:bg-gray-600 text-white rounded-md p-2 px-4 font-medium transition transform duration-200 hover:shadow-md hover:shadow-purple-200'
-              >
-                Sign in
-              </button>
-              <Toaster />
-            </form>
-          </div>
-          <div
-            className='flex-col gap-4 items-center hidden'
-            id='notification-modal'
-          >
-            <XIcon
-              onClick={hideModal}
-              className='cursor-pointer h-6 absolute top-2 right-2 text-gray-700'
             />
-            <h2
-              id='notification-modal'
-              className='text-gray-700 text-xl font-medium'
+            <button
+              id='email-submit-btn'
+              type='submit'
+              onClick={handleSignUp}
+              className='bg-purple-500 hover:bg-gray-600 text-white rounded-md p-2 px-4 font-medium transition transform duration-200 hover:shadow-md hover:shadow-purple-200'
             >
-              Please check your Email for the login link
-            </h2>
-          </div>
+              Sign in
+            </button>
+            <Toaster />
+          </form>
+        </div>
+        <div
+          className='flex-col gap-4 items-center hidden'
+          id='notification-modal'
+        >
+          <XIcon
+            onClick={hideModal}
+            className='cursor-pointer h-6 absolute top-2 right-2 text-gray-700'
+          />
+          <h2
+            id='notification-modal'
+            className='text-gray-700 text-xl font-medium'
+          >
+            Please check your Email for the login link
+          </h2>
         </div>
       </div>
-    </Transition>
+    </div>
   );
 }

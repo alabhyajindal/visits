@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@headlessui/react": "^1.6.3",
     "@heroicons/react": "^1.0.6",
     "@prisma/client": "^3.14.0",
     "@supabase/supabase-js": "^1.35.3",

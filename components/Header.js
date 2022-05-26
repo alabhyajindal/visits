@@ -30,6 +30,13 @@ export default function Header() {
     };
   }, []);
 
+  // Function to show the Sign in modal when the "Sign in" button is clicked
+  function showModal() {
+    const modal = document.getElementById('modal-cont');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+
   async function fetchProfile() {
     const userData = supabase.auth.user();
     if (userData) {
