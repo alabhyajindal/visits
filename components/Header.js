@@ -8,6 +8,7 @@ export default function Header() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
+    // Stores the userData to the user state immediately when the user signs in or out.
     const { data: authListener } = supabase.auth.onAuthStateChange(
       (event, session) => {
         handleAuthChange(event, session);
@@ -21,6 +22,7 @@ export default function Header() {
       }
     );
 
+    // Fetches the user data on the initial page render. Important in order to access the user data at all times.
     fetchProfile();
 
     return () => {

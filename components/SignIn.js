@@ -70,29 +70,30 @@ export default function SignIn() {
           <h1 className='text-gray-700 text-xl font-bold'>
             Create your account
           </h1>
-
-          <input
-            type='email'
-            placeholder='Email'
-            value={email}
-            onChange={handleEmailInput}
-            className='mt-1
+          <form className='flex flex-col gap-4 items-center'>
+            <input
+              type='email'
+              placeholder='Email'
+              value={email}
+              onChange={handleEmailInput}
+              className='mt-1
           block
           w-full
           rounded-md
           border-gray-300
           shadow-sm
           focus:border-purple-300 focus:ring focus:ring-purple-200 focus:ring-opacity-50'
-          />
-          <button
-            id='email-submit-btn'
-            type='submit'
-            onClick={handleSignUp}
-            className='bg-purple-500 hover:bg-gray-600 text-white rounded-md p-2 px-4 font-medium transition transform duration-200'
-          >
-            Sign up
-          </button>
-          <Toaster />
+            />
+            <button
+              id='email-submit-btn'
+              type='submit'
+              onClick={handleSignUp}
+              className='bg-purple-500 hover:bg-gray-600 text-white rounded-md p-2 px-4 font-medium transition transform duration-200'
+            >
+              Sign in
+            </button>
+            <Toaster />
+          </form>
         </div>
         <div id='notification-modal' className='relative hidden'>
           <h2
