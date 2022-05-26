@@ -1,7 +1,8 @@
-import { useState } from 'react';
 import { supabase } from '../client';
-import { XIcon } from '@heroicons/react/outline';
+import { useState } from 'react';
 import isEmail from 'validator/lib/isEmail';
+import toast, { Toaster } from 'react-hot-toast';
+import { XIcon } from '@heroicons/react/outline';
 
 export default function SignIn() {
   const [email, setEmail] = useState('');
@@ -11,6 +12,8 @@ export default function SignIn() {
     const modal = document.getElementById('modal-cont');
     modal.classList.add('hidden');
     modal.classList.remove('flex');
+
+    setEmail('');
   }
 
   function handleEmailInput(e) {
@@ -31,13 +34,39 @@ export default function SignIn() {
     }
   }
 
-  function handleSignUp(e) {
+  async function handleSignUp(e) {
     e.preventDefault();
+    let toastId;
+
+    if (isEmail(email)) {
+      try {
+        toastId = toast.loading('Sending...');
+        const { data, error } = await supabase.auth.signIn({
+          email: email,
+        });
+
+        if (error) {
+          throw new Error(error);
+        } else {
+          toast.dismiss(toastId);
+          toast.success('Please check your Email for the login link');
+          setEmail('');
+          setTimeout(() => {
+            hideModal();
+          }, 1500);
+        }
+      } catch (err) {
+        toast.dismiss(toastId);
+        toast.error('Something went wrong');
+      }
+    } else {
+      toast.error('Please enter a valid Email address');
+    }
   }
   return (
     // Add the class of 'hidden' to the first div below when done designing the modal window
     <div
-      className='fixed inset-0 mx-auto flex items-center bg-opacity-75 bg-gray-500'
+      className='hidden fixed inset-0 mx-auto items-center bg-opacity-75 bg-gray-500'
       id='modal-cont'
     >
       <div className='flex items-center shadow-md relative py-12 px-8 bg-white rounded-md mx-auto'>
@@ -71,6 +100,7 @@ export default function SignIn() {
           >
             Sign up
           </button>
+          <Toaster />
         </div>
       </div>
     </div>
