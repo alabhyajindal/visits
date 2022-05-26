@@ -98,7 +98,6 @@ export default function SignIn() {
             >
               Sign in
             </button>
-            <Toaster />
           </form>
         </div>
         <div
@@ -109,14 +108,12 @@ export default function SignIn() {
             onClick={hideModal}
             className='cursor-pointer h-6 absolute top-2 right-2 text-gray-700'
           />
-          <h2
-            id='notification-modal'
-            className='text-gray-700 text-xl font-medium'
-          >
+          <h2 id='notification-modal' className='text-gray-700 text-xl'>
             Please check your Email for the login link
           </h2>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 }

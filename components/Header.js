@@ -35,7 +35,7 @@ export default function Header() {
     const modal = document.getElementById('modal-cont');
     modal.classList.remove('invisible');
     modal.classList.add('flex');
-    document.getElementById('sign-in-cont').classList.remove('opacity-10');
+    document.getElementById('sign-in-cont').classList.remove('opacity-50');
     document.getElementById('sign-in-cont').classList.add('opacity-100');
   }
 
@@ -95,9 +95,12 @@ export default function Header() {
       {/* Sign In Modal */}
       <SignIn />
       {user && (
-        <div className='bg-green-400 px-2 py-4 rounded-md'>
-          <h1 className='text-3xl'>Hello, {user.email}</h1>
-          <p onClick={signOut} className='cursor-pointer'>
+        <div className='bg-green-400 px-1 py-2 rounded-md'>
+          <h1 className='text-lg font-medium'>Hello, {user.email}</h1>
+          <p
+            onClick={signOut}
+            className='cursor-pointer bg-red-400 inline p-1 rounded-md'
+          >
             Sign out
           </p>
         </div>
