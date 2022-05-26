@@ -7,12 +7,12 @@ export default function SignIn() {
     document.getElementById('modal-cont').classList.add('hidden');
   }
   return (
-    <div className='fixed inset-0 mx-auto flex items-center'>
-      <div
-        className='flex items-center shadow-md relative py-12 px-8 bg-purple-300 rounded-md mx-auto'
-        id='modal-cont'
-      >
-        <div>
+    <div
+      className='fixed inset-0 mx-auto flex items-center bg-gray-500'
+      id='modal-cont'
+    >
+      <div className='flex items-center shadow-md relative py-12 px-8 bg-purple-300 rounded-md mx-auto'>
+        <div className=''>
           <XIcon
             onClick={hideModal}
             className='cursor-pointer h-6 absolute top-2 right-2 text-gray-700'
