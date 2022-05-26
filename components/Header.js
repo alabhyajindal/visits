@@ -5,7 +5,9 @@ import SignIn from './SignIn';
 export default function Header() {
   // Function to show the Sign in modal when the "Sign in" button is clicked
   function showModal() {
-    document.getElementById('modal-cont').classList.remove('hidden');
+    const modal = document.getElementById('modal-cont');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
   }
 
   return (
