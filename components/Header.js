@@ -1,13 +1,24 @@
+import { supabase } from '../client';
 import Image from 'next/image';
 import Link from 'next/link';
 import SignIn from './SignIn';
+import { useEffect } from 'react';
 
 export default function Header() {
+  useEffect(() => {
+    fetchProfile();
+  }, []);
+
   // Function to show the Sign in modal when the "Sign in" button is clicked
   function showModal() {
     const modal = document.getElementById('modal-cont');
     modal.classList.remove('hidden');
     modal.classList.add('flex');
+  }
+
+  async function fetchProfile() {
+    const user = supabase.auth.user();
+    console.log(user);
   }
 
   return (

@@ -19,18 +19,10 @@ export default function SignIn() {
   function handleEmailInput(e) {
     const btn = document.getElementById('email-submit-btn');
     setEmail(e.target.value);
-    if (isEmail(e.target.value)) {
-      btn.classList.add('bg-purple-500');
-      btn.classList.add('text-white');
-      btn.classList.add('hover:bg-gray-600');
-      btn.classList.add('hover:border-gray-600');
-      btn.classList.remove('text-purple-500');
+    if (!isEmail(e.target.value)) {
+      btn.classList.add('opacity-50');
     } else {
-      btn.classList.remove('bg-purple-500');
-      btn.classList.remove('text-white');
-      btn.classList.remove('hover:bg-gray-600');
-      btn.classList.remove('hover:border-gray-600');
-      btn.classList.add('text-purple-500');
+      btn.classList.remove('opacity-50');
     }
   }
 
@@ -96,7 +88,7 @@ export default function SignIn() {
             id='email-submit-btn'
             type='submit'
             onClick={handleSignUp}
-            className='border-2  border-purple-500 text-purple-500 rounded-md p-2 px-4 font-medium transition transform duration-200'
+            className='bg-purple-500 hover:bg-gray-600 text-white rounded-md p-2 px-4 font-medium transition transform duration-200'
           >
             Sign up
           </button>
