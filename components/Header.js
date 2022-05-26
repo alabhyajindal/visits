@@ -2,11 +2,30 @@ import { supabase } from '../client';
 import Image from 'next/image';
 import Link from 'next/link';
 import SignIn from './SignIn';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Header() {
+  const [user, setUser] = useState(null);
+
   useEffect(() => {
+    const { data: authListener } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        handleAuthChange(event, session);
+        if (event === 'SIGNED_IN') {
+          console.log('SIGNED_IN', session);
+          setUser(session.user);
+        }
+        if (event === 'SIGNED_OUT') {
+          setUser(null);
+        }
+      }
+    );
+
     fetchProfile();
+
+    return () => {
+      authListener.unsubscribe();
+    };
   }, []);
 
   // Function to show the Sign in modal when the "Sign in" button is clicked
@@ -17,8 +36,25 @@ export default function Header() {
   }
 
   async function fetchProfile() {
-    const user = supabase.auth.user();
-    console.log(user);
+    const userData = supabase.auth.user();
+    if (userData) {
+      setUser(userData);
+    }
+  }
+
+  async function signOut() {
+    await supabase.auth.signOut();
+    console.log('You have been signed out');
+  }
+
+  async function handleAuthChange(event, session) {
+    // Sets and removes the Supabase cookie
+    await fetch('/api/auth', {
+      method: 'POST',
+      headers: new Headers({ 'Content-Type': 'application/json' }),
+      credentials: 'same-origin',
+      body: JSON.stringify({ event, session }),
+    });
   }
 
   return (
@@ -54,6 +90,14 @@ export default function Header() {
       </div>
       {/* Sign In Modal */}
       <SignIn />
+      {user && (
+        <div className='bg-green-400 px-2 py-4 rounded-md'>
+          <h1 className='text-3xl'>Hello, {user.email}</h1>
+          <p onClick={signOut} className='cursor-pointer'>
+            Sign out
+          </p>
+        </div>
+      )}
     </div>
   );
 }
