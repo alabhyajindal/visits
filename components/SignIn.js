@@ -37,6 +37,8 @@ export default function SignIn() {
   async function handleSignUp(e) {
     e.preventDefault();
     let toastId;
+    let notificationModal = document.getElementById('notification-modal');
+    let signInModal = document.getElementById('sign-in-modal');
 
     if (isEmail(email)) {
       try {
@@ -49,11 +51,9 @@ export default function SignIn() {
           throw new Error(error);
         } else {
           toast.dismiss(toastId);
-          toast.success('Please check your Email for the login link');
+          notificationModal.classList.remove('hidden');
+          signInModal.classList.add('hidden');
           setEmail('');
-          setTimeout(() => {
-            hideModal();
-          }, 1500);
         }
       } catch (err) {
         toast.dismiss(toastId);
@@ -70,7 +70,7 @@ export default function SignIn() {
       id='modal-cont'
     >
       <div className='flex items-center shadow-md relative py-12 px-8 bg-white rounded-md mx-auto'>
-        <div className='flex flex-col gap-4 items-center'>
+        <div className='flex flex-col gap-4 items-center' id='sign-in-modal'>
           <XIcon
             onClick={hideModal}
             className='cursor-pointer h-6 absolute top-2 right-2 text-gray-700'
@@ -90,7 +90,7 @@ export default function SignIn() {
           rounded-md
           border-gray-300
           shadow-sm
-          focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50'
+          focus:border-purple-300 focus:ring focus:ring-purple-200 focus:ring-opacity-50'
           />
           <button
             id='email-submit-btn'
@@ -101,6 +101,14 @@ export default function SignIn() {
             Sign up
           </button>
           <Toaster />
+        </div>
+        <div id='notification-modal' className='relative hidden'>
+          <h2
+            id='notification-modal'
+            className='text-gray-700 text-xl font-medium'
+          >
+            Please check your Email for the login link
+          </h2>
         </div>
       </div>
     </div>
