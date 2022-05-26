@@ -10,12 +10,13 @@ export default function SignIn() {
   // Function to hide the Sign in modal when the XIcon is clicked
   function hideModal(e) {
     const modal = document.getElementById('modal-cont');
-    modal.classList.add('hidden');
+    modal.classList.add('invisible');
     modal.classList.remove('flex');
 
     setEmail('');
 
-    console.log(e);
+    document.getElementById('sign-in-cont').classList.add('opacity-10');
+    document.getElementById('sign-in-cont').classList.remove('opacity-100');
   }
 
   function handleEmailInput(e) {
@@ -60,11 +61,14 @@ export default function SignIn() {
   }
   return (
     <div
-      className='hidden fixed inset-0 mx-auto items-center bg-opacity-75 bg-gray-500'
+      className='invisible fixed inset-0 mx-auto items-center bg-opacity-75 bg-gray-500'
       id='modal-cont'
     >
-      <div className='flex items-center shadow-md relative py-12 px-8 bg-white rounded-md mx-auto'>
-        <div className='flex flex-col gap-4 items-center' id='sign-in-modal'>
+      <div
+        className='flex items-center shadow-md relative py-12 px-8 bg-white rounded-md mx-auto opacity-10 transition transform duration-700 ease-out'
+        id='sign-in-cont'
+      >
+        <div className='flex flex-col gap-4 items-center ' id='sign-in-modal'>
           <XIcon
             onClick={hideModal}
             className='cursor-pointer h-6 absolute top-2 right-2 text-gray-700'

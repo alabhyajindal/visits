@@ -33,8 +33,10 @@ export default function Header() {
   // Function to show the Sign in modal when the "Sign in" button is clicked
   function showModal() {
     const modal = document.getElementById('modal-cont');
-    modal.classList.remove('hidden');
+    modal.classList.remove('invisible');
     modal.classList.add('flex');
+    document.getElementById('sign-in-cont').classList.remove('opacity-10');
+    document.getElementById('sign-in-cont').classList.add('opacity-100');
   }
 
   async function fetchProfile() {
