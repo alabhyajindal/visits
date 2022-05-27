@@ -106,7 +106,7 @@ export default function SignIn() {
           </h1>
 
           <form className='grid grid-cols-1 gap-4 items-center max-w-md'>
-            <label className='text-gray-700 block'>
+            {/* <label className='text-gray-700 block'>
               Student / Company
               <select
                 onChange={changeUserGroup}
@@ -118,14 +118,15 @@ export default function SignIn() {
                     rounded-md
                     border-gray-300
                     shadow-sm
-                    focus:border-purple-300 focus:ring focus:ring-purple-200 focus:ring-opacity-50
+                    focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50
                   '
               >
                 <option defaultValue>Choose</option>
                 <option>Student</option>
                 <option>Company</option>
               </select>
-            </label>
+            </label> */}
+
             <label className='text-gray-700'>
               Email
               <input
@@ -140,14 +141,14 @@ export default function SignIn() {
           rounded-md
           border-gray-300
           shadow-sm
-          focus:border-purple-300 focus:ring focus:ring-purple-200 focus:ring-opacity-50'
+          focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50'
               />
             </label>
             <button
               id='email-submit-btn'
               type='submit'
               onClick={handleSignUp}
-              className='bg-purple-500 hover:bg-gray-600 text-white rounded-md p-2 px-4 font-medium transition transform duration-200 hover:shadow-md hover:shadow-purple-200'
+              className='bg-blue-500 hover:bg-gray-600 text-white rounded-md p-2 px-4 font-medium transition transform duration-200 hover:shadow-md hover:shadow-blue-200'
             >
               Sign in
             </button>

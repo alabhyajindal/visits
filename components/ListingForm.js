@@ -74,7 +74,7 @@ export default function ListingForm() {
           rounded-md
           border-gray-300
           shadow-sm
-          focus:border-purple-300 focus:ring focus:ring-purple-200 focus:ring-opacity-50
+          focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50
           '
           />
         </label>
@@ -90,7 +90,7 @@ export default function ListingForm() {
           rounded-md
           border-gray-300
           shadow-sm
-          focus:border-purple-300 focus:ring focus:ring-purple-200 focus:ring-opacity-50'
+          focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50'
           />
         </label>
         <div className='grid md:grid-cols-2 gap-y-4 gap-x-4'>
@@ -106,7 +106,7 @@ export default function ListingForm() {
             rounded-md
             border-gray-300
             shadow-sm
-            focus:border-purple-300 focus:ring focus:ring-purple-200 focus:ring-opacity-50'
+            focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50'
             />
           </label>
           <label className='text-gray-700'>
@@ -121,7 +121,7 @@ export default function ListingForm() {
             rounded-md
             border-gray-300
             shadow-sm
-            focus:border-purple-300 focus:ring focus:ring-purple-200 focus:ring-opacity-50'
+            focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50'
             />
           </label>
           <label className='text-gray-700'>
@@ -136,7 +136,7 @@ export default function ListingForm() {
           rounded-md
           border-gray-300
           shadow-sm
-          focus:border-purple-300 focus:ring focus:ring-purple-200 focus:ring-opacity-50'
+          focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50'
             />
           </label>
           <label className='text-gray-700'>
@@ -151,7 +151,7 @@ export default function ListingForm() {
           rounded-md
           border-gray-300
           shadow-sm
-          focus:border-purple-300 focus:ring focus:ring-purple-200 focus:ring-opacity-50'
+          focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50'
             />
           </label>
         </div>
@@ -167,7 +167,7 @@ export default function ListingForm() {
       <button
         onClick={submitForm}
         // onClick={addVisit}
-        className='mt-6 bg-purple-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md font-medium transition transform duration-200'
+        className='mt-6 bg-blue-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md font-medium transition transform duration-200'
       >
         Submit
       </button>
