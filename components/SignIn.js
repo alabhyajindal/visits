@@ -1,11 +1,31 @@
 import { supabase } from '../client';
 import { useState } from 'react';
+import Image from 'next/image';
 import isEmail from 'validator/lib/isEmail';
 import toast, { Toaster } from 'react-hot-toast';
 import { XIcon } from '@heroicons/react/outline';
 
 export default function SignIn() {
   const [email, setEmail] = useState('');
+
+  const [isCompany, setIsCompany] = useState(null);
+
+  function changeUserGroup(e) {
+    const emailInput = document.getElementById('email-input');
+
+    if (e.target.value == 'Company') {
+      setIsCompany(true);
+      emailInput.placeholder = 'tim@apple.com';
+    }
+    if (e.target.value == 'Student') {
+      setIsCompany(false);
+      emailInput.placeholder = 'simran@joseph.in';
+    }
+    if (e.target.value == 'Choose') {
+      setIsCompany(null);
+      emailInput.placeholder = 'Email';
+    }
+  }
 
   // Function to hide the Sign in modal when the XIcon is clicked
   function hideModal(e) {
@@ -15,7 +35,7 @@ export default function SignIn() {
 
     setEmail('');
 
-    document.getElementById('sign-in-cont').classList.add('opacity-10');
+    document.getElementById('sign-in-cont').classList.add('opacity-50');
     document.getElementById('sign-in-cont').classList.remove('opacity-100');
   }
 
@@ -61,11 +81,11 @@ export default function SignIn() {
   }
   return (
     <div
-      className='invisible fixed inset-0 mx-auto items-center bg-opacity-75 bg-gray-500'
+      className='invisible fixed inset-0 mx-auto items-center bg-opacity-75 bg-gray-500 transition transform duration-400 ease-out'
       id='modal-cont'
     >
       <div
-        className='flex items-center shadow-md relative py-12 px-8 bg-white rounded-md mx-auto opacity-10 transition transform duration-700 ease-out'
+        className='flex items-center shadow-md relative py-12 px-8 bg-white rounded-md mx-auto opacity-50 transition transform duration-400 ease-out w-auto'
         id='sign-in-cont'
       >
         <div className='flex flex-col gap-4 items-center ' id='sign-in-modal'>
@@ -73,23 +93,55 @@ export default function SignIn() {
             onClick={hideModal}
             className='cursor-pointer h-6 absolute top-2 right-2 text-gray-700'
           />
+          <Image
+            src='/logo.png'
+            objectPosition='center'
+            alt='Visit Logo'
+            height={50}
+            width={100}
+            className='cursor-pointer'
+          />
           <h1 className='text-gray-700 text-xl font-medium'>
             Welcome to Visit
           </h1>
+
           <form className='flex flex-col gap-4 items-center'>
-            <input
-              type='email'
-              placeholder='Email'
-              value={email}
-              onChange={handleEmailInput}
-              className='mt-1
+            <label className='text-gray-700'>
+              Which of these describe you the best?
+              <select
+                onChange={changeUserGroup}
+                className='
+                    block
+                    w-full
+                    mt-1
+                    rounded-md
+                    border-gray-300
+                    shadow-sm
+                    focus:border-purple-300 focus:ring focus:ring-purple-200 focus:ring-opacity-50
+                  '
+              >
+                <option defaultValue>Choose</option>
+                <option>Student</option>
+                <option>Company</option>
+              </select>
+            </label>
+            <label className='text-gray-700'>
+              Email
+              <input
+                type='email'
+                id='email-input'
+                placeholder='Email'
+                value={email}
+                onChange={handleEmailInput}
+                className='mt-1
           block
           w-full
           rounded-md
           border-gray-300
           shadow-sm
           focus:border-purple-300 focus:ring focus:ring-purple-200 focus:ring-opacity-50'
-            />
+              />
+            </label>
             <button
               id='email-submit-btn'
               type='submit'
