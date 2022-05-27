@@ -16,7 +16,6 @@ export default function Header() {
       (event, session) => {
         handleAuthChange(event, session);
         if (event === 'SIGNED_IN') {
-          console.log('SIGNED_IN', session);
           setUser(session.user);
           if (Object.keys(session.user.user_metadata).length === 0) {
             router.push('/profile');
@@ -50,15 +49,16 @@ export default function Header() {
     const userData = supabase.auth.user();
     if (userData) {
       setUser(userData);
-      console.log(userData);
       if (!userData.user_metadata.category) {
         router.push('/profile');
       }
     }
+    console.log(userData);
   }
 
   async function signOut() {
     await supabase.auth.signOut();
+    // Replace with a toast
     console.log('You have been signed out');
   }
 
