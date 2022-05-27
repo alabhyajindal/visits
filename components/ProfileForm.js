@@ -2,45 +2,85 @@ import { supabase } from '../client';
 import { useState } from 'react';
 
 export default function ProfileForm() {
-  const [info, setInfo] = useState({
-    category: 'student',
+  const [group, setGroup] = useState('student');
+
+  const [studentInfo, setStudentInfo] = useState({
     firstName: '',
     lastName: '',
   });
 
+  const [companyInfo, setCompanyInfo] = useState({
+    name: '',
+    size: '',
+  });
+
+  const updateGroup = function (e) {
+    setGroup(e.target.value);
+  };
+
   const updateFormData = function (e) {
-    setInfo((prevInfo) => {
-      return {
-        ...prevInfo,
-        [e.target.id]: e.target.value,
-      };
-    });
+    if (group === 'student') {
+      setStudentInfo((prevInfo) => {
+        return {
+          ...prevInfo,
+          [e.target.id]: e.target.value,
+        };
+      });
+    }
+    if (group === 'company') {
+      setCompanyInfo((prevInfo) => {
+        return {
+          ...prevInfo,
+          [e.target.id]: e.target.value,
+        };
+      });
+    }
   };
 
   const continueForm = function () {
     const firstForm = document.getElementById('first-form');
-    const secondForm = document.getElementById('second-form');
+    const userForm = document.getElementById('user-form');
+    const companyForm = document.getElementById('company-form');
+
     const continueBtn = document.getElementById('continue-btn');
     const submitBtn = document.getElementById('submit-btn');
 
     firstForm.classList.add('hidden');
     continueBtn.classList.add('hidden');
 
-    secondForm.classList.add('flex');
-    secondForm.classList.remove('hidden');
+    if (group === 'student') {
+      userForm.classList.add('flex');
+      userForm.classList.remove('hidden');
+    }
+    if (group === 'company') {
+      companyForm.classList.add('flex');
+      companyForm.classList.remove('hidden');
+    }
+
     submitBtn.classList.remove('hidden');
 
     document.getElementById('form-steps').textContent = 'Step 2 of 2';
-
-    // console.log(info);
   };
 
-  async function submitForm() {
-    console.log(info);
+  async function submitStudentInfo() {
     const { user, error } = await supabase.auth.update({
-      data: info,
+      data: studentInfo,
     });
-    console.log(info);
+  }
+
+  async function submitCompanyInfo() {
+    const { user, error } = await supabase.auth.update({
+      data: companyInfo,
+    });
+  }
+
+  function submitForm() {
+    if (group === 'student') {
+      submitStudentInfo();
+    }
+    if (group === 'company') {
+      submitCompanyInfo();
+    }
   }
 
   return (
@@ -58,8 +98,8 @@ export default function ProfileForm() {
             a visit?
             <select
               id='category'
-              onChange={updateFormData}
-              value={info.category}
+              onChange={updateGroup}
+              value={group}
               className='
                     block
                     w-full
@@ -82,13 +122,14 @@ export default function ProfileForm() {
         >
           Continue
         </button>
-        <div className='max-w-md flex-col gap-4 hidden' id='second-form'>
+
+        <div className='max-w-md flex-col gap-4 hidden' id='user-form'>
           <label className='text-gray-700 block'>
             First Name
             <input
               type='text'
               id='firstName'
-              value={info.firstName}
+              value={studentInfo.firstName}
               onChange={updateFormData}
               className='
                     block
@@ -106,7 +147,46 @@ export default function ProfileForm() {
             <input
               type='text'
               id='lastName'
-              value={info.lastName}
+              value={studentInfo.lastName}
+              onChange={updateFormData}
+              className='
+                    block
+                    w-full
+                    mt-1
+                    rounded-md
+                    border-gray-300
+                    shadow-sm
+                    focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50
+                  '
+            />
+          </label>
+        </div>
+
+        <div className='max-w-md flex-col gap-4 hidden' id='company-form'>
+          <label className='text-gray-700 block'>
+            Company Name
+            <input
+              type='text'
+              id='name'
+              value={companyInfo.name}
+              onChange={updateFormData}
+              className='
+                    block
+                    w-full
+                    mt-1
+                    rounded-md
+                    border-gray-300
+                    shadow-sm
+                    focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50
+                  '
+            />
+          </label>
+          <label className='text-gray-700 block'>
+            Company Size
+            <input
+              type='number'
+              id='size'
+              value={companyInfo.size}
               onChange={updateFormData}
               className='
                     block
