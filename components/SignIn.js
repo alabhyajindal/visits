@@ -85,7 +85,7 @@ export default function SignIn() {
       id='modal-cont'
     >
       <div
-        className='flex items-center shadow-md relative py-12 px-8 bg-white rounded-md mx-auto opacity-50 transition transform duration-400 ease-out max-w-md'
+        className='flex items-center shadow-md relative p-12 bg-white rounded-md mx-auto opacity-50 transition transform duration-400 ease-out max-w-md'
         id='sign-in-cont'
       >
         <div className='flex flex-col gap-4 items-center ' id='sign-in-modal'>

@@ -62,7 +62,7 @@ export default function Header() {
   }
 
   return (
-    <div className='shadow-md py-4 px-8 sticky flex items-center justify-between z-50'>
+    <div className='shadow-md py-4 px-8 sticky top-0 bg-white flex items-center justify-between z-50'>
       {/* Left */}
       <Link href='/'>
         <a>
