@@ -3,9 +3,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import SignIn from './SignIn';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 export default function Header() {
   const [user, setUser] = useState(null);
+
+  const router = useRouter();
 
   useEffect(() => {
     // Stores the userData to the user state immediately when the user signs in or out.
@@ -15,9 +18,13 @@ export default function Header() {
         if (event === 'SIGNED_IN') {
           console.log('SIGNED_IN', session);
           setUser(session.user);
+          if (Object.keys(session.user.user_metadata).length === 0) {
+            router.push('/profile');
+          }
         }
         if (event === 'SIGNED_OUT') {
           setUser(null);
+          router.push('/');
         }
       }
     );
@@ -43,6 +50,10 @@ export default function Header() {
     const userData = supabase.auth.user();
     if (userData) {
       setUser(userData);
+      console.log(userData);
+      if (!userData.user_metadata.category) {
+        router.push('/profile');
+      }
     }
   }
 
