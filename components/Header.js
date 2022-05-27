@@ -42,8 +42,12 @@ export default function Header() {
     const modal = document.getElementById('modal-cont');
     modal.classList.remove('invisible');
     modal.classList.add('flex');
-    document.getElementById('sign-in-cont').classList.remove('opacity-50');
-    document.getElementById('sign-in-cont').classList.add('opacity-100');
+
+    const signInModal = document.getElementById('sign-in-cont');
+
+    signInModal.classList.remove('opacity-50');
+    signInModal.classList.add('opacity-100');
+    signInModal.classList.add('-translate-y-8');
   }
 
   async function fetchProfile() {

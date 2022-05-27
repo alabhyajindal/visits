@@ -8,35 +8,19 @@ import { XIcon } from '@heroicons/react/outline';
 export default function SignIn() {
   const [email, setEmail] = useState('');
 
-  const [isCompany, setIsCompany] = useState(null);
-
-  function changeUserGroup(e) {
-    const emailInput = document.getElementById('email-input');
-
-    if (e.target.value == 'Company') {
-      setIsCompany(true);
-      emailInput.placeholder = 'tim@apple.com';
-    }
-    if (e.target.value == 'Student') {
-      setIsCompany(false);
-      emailInput.placeholder = 'simran@joseph.in';
-    }
-    if (e.target.value == 'Choose') {
-      setIsCompany(null);
-      emailInput.placeholder = 'Email';
-    }
-  }
-
   // Function to hide the Sign in modal when the XIcon is clicked
-  function hideModal(e) {
+  function hideModal() {
     const modal = document.getElementById('modal-cont');
     modal.classList.add('invisible');
     modal.classList.remove('flex');
 
     setEmail('');
 
-    document.getElementById('sign-in-cont').classList.add('opacity-50');
-    document.getElementById('sign-in-cont').classList.remove('opacity-100');
+    const signInModal = document.getElementById('sign-in-cont');
+
+    signInModal.classList.add('opacity-50');
+    signInModal.classList.remove('opacity-100');
+    signInModal.classList.remove('-translate-y-8');
   }
 
   function handleEmailInput(e) {
