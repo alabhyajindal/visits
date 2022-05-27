@@ -4,6 +4,7 @@ import Link from 'next/link';
 import SignIn from './SignIn';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Header() {
   const [user, setUser] = useState(null);
@@ -57,9 +58,22 @@ export default function Header() {
   }
 
   async function signOut() {
-    await supabase.auth.signOut();
-    // Replace with a toast
-    console.log('You have been signed out');
+    let toastId;
+    try {
+      toastId = toast.loading('Signing out...');
+
+      const { error } = await supabase.auth.signOut();
+
+      if (error) {
+        throw new Error(error);
+      } else {
+        toast.dismiss(toastId);
+        toast.success('Signed out');
+      }
+    } catch (err) {
+      toast.dismiss(toastId);
+      toast.error('Something went wrong');
+    }
   }
 
   async function handleAuthChange(event, session) {
@@ -104,14 +118,12 @@ export default function Header() {
           </button>
         )}
         {user && (
-          <button
-            onClick={signOut}
-            className='hover:bg-gray-600 hover:text-white text-gray-600  rounded-md p-2 px-4 font-medium transition transform duration-200 hover:shadow-md hover:shadow-blue-200'
-          >
+          <button onClick={signOut} className='btn-primary'>
             Sign out
           </button>
         )}
       </div>
+      <Toaster />
 
       {/* Sign In Modal */}
       <SignIn />
