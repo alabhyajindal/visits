@@ -79,32 +79,34 @@ export default function Header() {
 
       {/* Right */}
       <div className='flex gap-4 text-sm items-center'>
-        <Link href='/create'>
+        {/* We want to show the 'List a visit' option when the user registers as
+        a company. If they register as a student then we want to show the
+        'Explore' option. */}
+        {/* <Link href='/create'>
           <a>
             <h2 className='font-medium text-gray-600'>List a visit</h2>
           </a>
-        </Link>
-
-        <button
-          onClick={showModal}
-          className='bg-blue-500 hover:bg-gray-600 text-white rounded-md p-2 px-4 font-medium transition transform duration-200 hover:shadow-md hover:shadow-blue-200'
-        >
-          Sign in
-        </button>
-      </div>
-      {/* Sign In Modal */}
-      <SignIn />
-      {user && (
-        <div className='bg-green-400 px-1 py-2 rounded-md'>
-          <h1 className='text-lg font-medium'>Hello, {user.email}</h1>
-          <p
+        </Link> */}
+        {!user && (
+          <button
+            onClick={showModal}
+            className='bg-blue-500 hover:bg-gray-600 text-white rounded-md p-2 px-4 font-medium transition transform duration-200 hover:shadow-md hover:shadow-blue-200'
+          >
+            Sign in
+          </button>
+        )}
+        {user && (
+          <button
             onClick={signOut}
-            className='cursor-pointer bg-red-400 inline p-1 rounded-md'
+            className='hover:bg-gray-600 hover:text-white text-gray-600  rounded-md p-2 px-4 font-medium transition transform duration-200 hover:shadow-md hover:shadow-blue-200'
           >
             Sign out
-          </p>
-        </div>
-      )}
+          </button>
+        )}
+      </div>
+
+      {/* Sign In Modal */}
+      <SignIn />
     </div>
   );
 }
