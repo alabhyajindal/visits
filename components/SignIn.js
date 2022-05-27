@@ -106,27 +106,6 @@ export default function SignIn() {
           </h1>
 
           <form className='grid grid-cols-1 gap-4 items-center max-w-md'>
-            {/* <label className='text-gray-700 block'>
-              Student / Company
-              <select
-                onChange={changeUserGroup}
-                className='
-                    
-                    block
-                    w-full
-                    mt-1
-                    rounded-md
-                    border-gray-300
-                    shadow-sm
-                    focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50
-                  '
-              >
-                <option defaultValue>Choose</option>
-                <option>Student</option>
-                <option>Company</option>
-              </select>
-            </label> */}
-
             <label className='text-gray-700'>
               Email
               <input

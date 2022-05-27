@@ -12,7 +12,6 @@ export default function profile() {
       <Header />
       <div className='mt-8 mx-16'>
         <h2 className='text-3xl font-medium text-gray-700'>Create a profile</h2>
-        <p className='text-lg text-gray-700'>Tell us about yourself!</p>
         <ProfileForm />
       </div>
     </div>

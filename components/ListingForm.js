@@ -167,7 +167,7 @@ export default function ListingForm() {
       <button
         onClick={submitForm}
         // onClick={addVisit}
-        className='btn-primary mt-6'
+        className='btn-primary mt-4'
       >
         Submit
       </button>
