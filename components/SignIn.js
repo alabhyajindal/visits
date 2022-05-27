@@ -148,7 +148,7 @@ export default function SignIn() {
               id='email-submit-btn'
               type='submit'
               onClick={handleSignUp}
-              className='bg-blue-500 hover:bg-gray-600 text-white rounded-md p-2 px-4 font-medium transition transform duration-200 hover:shadow-md hover:shadow-blue-200'
+              className='btn-primary'
             >
               Sign in
             </button>

@@ -40,16 +40,12 @@ export default function ProfileForm() {
                     focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50
                   '
           >
-            <option disabled>Choose</option>
-            <option>Company</option>
             <option>Student</option>
+            <option>Company</option>
           </select>
         </label>
       </div>
-      <button
-        onClick={submitForm}
-        className='mt-6 bg-blue-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md font-medium transition transform duration-200'
-      >
+      <button onClick={submitForm} className='btn-primary mt-6'>
         Submit
       </button>
     </div>

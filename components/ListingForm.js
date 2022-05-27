@@ -167,7 +167,7 @@ export default function ListingForm() {
       <button
         onClick={submitForm}
         // onClick={addVisit}
-        className='mt-6 bg-blue-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md font-medium transition transform duration-200'
+        className='btn-primary mt-6'
       >
         Submit
       </button>

@@ -99,10 +99,7 @@ export default function Header() {
           </a>
         </Link> */}
         {!user && (
-          <button
-            onClick={showModal}
-            className='bg-blue-500 hover:bg-gray-600 text-white rounded-md p-2 px-4 font-medium transition transform duration-200 hover:shadow-md hover:shadow-blue-200'
-          >
+          <button onClick={showModal} className='btn-primary'>
             Sign in
           </button>
         )}
