@@ -52,8 +52,6 @@ export default function SignIn() {
   async function handleSignUp(e) {
     e.preventDefault();
     let toastId;
-    let notificationModal = document.getElementById('notification-modal');
-    let signInModal = document.getElementById('sign-in-modal');
 
     if (isEmail(email)) {
       try {
@@ -66,9 +64,10 @@ export default function SignIn() {
           throw new Error(error);
         } else {
           toast.dismiss(toastId);
-          notificationModal.classList.remove('hidden');
-          notificationModal.classList.add('flex');
-          signInModal.classList.add('hidden');
+          toast('Please check your Email for the login link', {
+            icon: '✉️',
+            duration: 6000,
+          });
           setEmail('');
         }
       } catch (err) {
@@ -132,18 +131,6 @@ export default function SignIn() {
               Sign in
             </button>
           </form>
-        </div>
-        <div
-          className='flex-col gap-4 items-center hidden'
-          id='notification-modal'
-        >
-          <XIcon
-            onClick={hideModal}
-            className='cursor-pointer h-6 absolute top-2 right-2 text-gray-700'
-          />
-          <h2 id='notification-modal' className='text-gray-700 text-xl'>
-            Please check your Email for the login link
-          </h2>
         </div>
       </div>
       <Toaster />
