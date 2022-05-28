@@ -186,6 +186,7 @@ export default function ListingForm() {
       <button onClick={submitForm} className='btn-primary mt-4'>
         Submit
       </button>
+      <Toaster />
     </div>
   );
 }
