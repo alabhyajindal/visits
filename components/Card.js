@@ -27,7 +27,7 @@ export default function Card({
             </div>
           )}
           <div className='p-2'>
-            <h1 className='text-xl font-medium text-gray-700'>
+            <h1 className='text-xl font-semibold text-gray-700'>
               {title},{' '}
               <span className='font-normal text-gray-600 text-lg'>
                 {location}
