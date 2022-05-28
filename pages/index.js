@@ -16,6 +16,10 @@ export default function Visit({ visits = [] }) {
   return (
     <div>
       <Head>
+        <link
+          href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
+          rel='stylesheet'
+        />
         <title>Visits</title>
         <meta name='description' content='Visit' />
       </Head>
