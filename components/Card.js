@@ -13,7 +13,7 @@ export default function Card({
   return (
     <Link href={`/visits/${id}`}>
       <a target='_blank'>
-        <div className='text-gray-700 rounded-md hover:bg-gray-100 cursor-pointer transition transform duration-200 ease-out p-2'>
+        <div className='text-gray-700 rounded-md hover:bg-gray-100 cursor-pointer transition transform duration-200 ease-out p-2 '>
           {image && (
             <div className='aspect-h-9 aspect-w-16 relative'>
               <Image
