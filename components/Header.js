@@ -5,6 +5,7 @@ import SignIn from './SignIn';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import toast, { Toaster } from 'react-hot-toast';
+import logo from '../public/logo.png';
 
 export default function Header() {
   const [user, setUser] = useState(null);
@@ -58,7 +59,6 @@ export default function Header() {
         router.push('/profile');
       }
     }
-    console.log(userData);
   }
 
   async function signOut() {
@@ -93,18 +93,18 @@ export default function Header() {
   return (
     <div className='shadow-md py-4 px-8 sticky top-0 bg-white flex items-center justify-between z-50 '>
       {/* Left */}
-      <Link href='/'>
-        <a>
-          <Image
-            src='/logo.png'
-            objectPosition='left'
-            alt='vIndustrie logo'
-            height={50}
-            width={100}
-            className='cursor-pointer'
-          />
-        </a>
-      </Link>
+      <div className='relative h-16 w-32'>
+        <Link href='/'>
+          <a>
+            <Image
+              src={logo}
+              layout='fill'
+              objectFit='contain'
+              alt='Visits logo'
+            />
+          </a>
+        </Link>
+      </div>
 
       {/* Right */}
       <div className='flex gap-4 text-sm items-center'>

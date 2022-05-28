@@ -85,10 +85,7 @@ export default function ProfileForm() {
 
   return (
     <div>
-      <p
-        className='uppercase text-sm text-blue-500 font-medium'
-        id='form-steps'
-      >
+      <p className='uppercase text-sm text-blue-500 font-bold' id='form-steps'>
         Step 1 of 2
       </p>
       <div className='my-4'>

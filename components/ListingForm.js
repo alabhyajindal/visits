@@ -27,8 +27,8 @@ export default function ListingForm() {
 
   async function submitForm() {
     const visitImage = document.getElementById('imageInput').files[0];
-    console.log(visitImage);
     const imageTitle = nanoid();
+
     // visitImage.type returns 'image/jpeg' or 'image/png'. Statement below removes the 'image/' and returns the file extension
     const imageExtension = `.${visitImage.type.slice(6)}`;
 

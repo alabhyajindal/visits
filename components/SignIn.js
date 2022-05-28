@@ -4,6 +4,7 @@ import Image from 'next/image';
 import isEmail from 'validator/lib/isEmail';
 import toast, { Toaster } from 'react-hot-toast';
 import { XIcon } from '@heroicons/react/outline';
+import logo from '../public/logo.png';
 
 export default function SignIn() {
   const [email, setEmail] = useState('');
@@ -76,16 +77,16 @@ export default function SignIn() {
             onClick={hideModal}
             className='cursor-pointer h-6 absolute top-2 right-2 text-gray-700'
           />
-          <Image
-            src='/logo.png'
-            objectPosition='center'
-            alt='Visit Logo'
-            height={50}
-            width={100}
-            className='cursor-pointer'
-          />
+          <div className='relative h-14 w-28'>
+            <Image
+              src={logo}
+              alt='Visits Logo'
+              layout='fill'
+              objectFit='contain'
+            />
+          </div>
           <h1 className='text-gray-700 text-xl font-medium'>
-            Welcome to Visit
+            Welcome to Visits
           </h1>
 
           <form className='grid grid-cols-1 gap-4 items-center max-w-md'>

@@ -17,6 +17,7 @@ export default function Card({
           {image && (
             <div className='aspect-h-9 aspect-w-16 relative'>
               <Image
+                priority
                 src={image}
                 layout='fill'
                 objectFit='cover'
