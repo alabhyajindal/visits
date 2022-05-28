@@ -14,7 +14,7 @@ export async function getServerSideProps() {
 
 export default function Visit({ visits = [] }) {
   return (
-    <div className='font-sans'>
+    <div>
       <Head>
         <title>Visits</title>
         <meta name='description' content='Visit' />
