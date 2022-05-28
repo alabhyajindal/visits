@@ -5,9 +5,8 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          {/* Switch font display to optional and the fallback font to sans-serif after Inter is working correctly and it's performance has been measured */}
           <link
-            href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
+            href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=optional'
             rel='stylesheet'
           />
         </Head>
