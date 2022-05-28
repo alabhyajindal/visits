@@ -6,7 +6,7 @@ export default function profile() {
   return (
     <div>
       <Head>
-        <title>Create a profile - Visit</title>
+        <title>Create a profile - Visits</title>
         <meta name='description' content='Visit' />
       </Head>
       <Header />

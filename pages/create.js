@@ -6,7 +6,7 @@ export default function Create() {
   return (
     <div>
       <Head>
-        <title>List a visit - Visit</title>
+        <title>List a visit - Visits</title>
         <meta name='description' content='Visit' />
       </Head>
       <Header />

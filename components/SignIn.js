@@ -79,10 +79,11 @@ export default function SignIn() {
           />
           <div className='relative h-14 w-28'>
             <Image
+              priority
               src={logo}
-              alt='Visits Logo'
               layout='fill'
               objectFit='contain'
+              alt='Visits Logo'
             />
           </div>
           <h1 className='text-gray-700 text-xl font-medium'>

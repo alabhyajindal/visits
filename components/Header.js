@@ -97,6 +97,7 @@ export default function Header() {
         <Link href='/'>
           <a>
             <Image
+              priority
               src={logo}
               layout='fill'
               objectFit='contain'
@@ -111,11 +112,13 @@ export default function Header() {
         {/* We want to show the 'List a visit' option when the user registers as
         a company. If they register as a student then we want to show the
         'Explore' option. */}
-        {/* <Link href='/create'>
+        <Link href='/create'>
           <a>
-            <h2 className='font-medium text-gray-600'>List a visit</h2>
+            <h2 className='hover:bg-gray-100 text-gray-600 px-4 py-2 rounded-md font-medium transition transform duration-200 hover:shadow-md hover:shadow-blue-200'>
+              List a visit
+            </h2>
           </a>
-        </Link> */}
+        </Link>
         {!user && (
           <button onClick={showModal} className='btn-primary'>
             Sign in

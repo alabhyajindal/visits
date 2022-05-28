@@ -16,7 +16,7 @@ export default function Visit({ visits = [] }) {
   return (
     <div>
       <Head>
-        <title>Visit</title>
+        <title>Visits</title>
         <meta name='description' content='Visit' />
       </Head>
       <Header />

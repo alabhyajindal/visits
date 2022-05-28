@@ -10,7 +10,7 @@ export default function ListedVisit(visit) {
     <div>
       <Head>
         <title>
-          {visit?.title || ''}, {visit?.location || ''} - Visit
+          {visit?.title || ''}, {visit?.location || ''} - Visits
         </title>
         <meta name='description' content={visit?.description || ''} />
       </Head>
