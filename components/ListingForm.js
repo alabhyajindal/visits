@@ -29,51 +29,68 @@ export default function ListingForm() {
     });
   }
 
-  async function submitForm() {
-    let toastId;
-    const visitImage = document.getElementById('imageInput').files[0];
-    const imageTitle = nanoid();
+  function validateForm() {
+    let correctKeyCount = 0;
 
-    // visitImage.type returns 'image/jpeg' or 'image/png'. Statement below removes the 'image/' and returns the file extension
-    const imageExtension = `.${visitImage.type.slice(6)}`;
-
-    try {
-      toastId = toast.loading('Uploading...');
-      await supabase.storage
-        .from('visitimages')
-        .upload(`${imageTitle}${imageExtension}`, visitImage);
-
-      const { data, error } = await supabase.from('Visit').insert([
-        {
-          ...info,
-          image: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/visitimages/${imageTitle}${imageExtension}`,
-        },
-      ]);
-
-      if (error) {
-        throw new Error(error);
-      } else {
-        toast.dismiss(toastId);
-        toast.success('Uploaded successfully');
-        router.push('/');
-      }
-    } catch (e) {
-      toast.dismiss(toastId);
-      toast.error('Something went wrong');
+    for (let property in info) {
+      info[property] !== '' && correctKeyCount++;
     }
 
-    setInfo({
-      id: nanoid(),
-      createdAt: new Date(),
-      updatedAt: new Date(),
-      title: '',
-      description: '',
-      location: '',
-      duration: '',
-      maxGuests: '',
-      price: '',
-      image: '',
-    });
+    if (correctKeyCount === 9) return true;
+  }
+
+  async function submitForm() {
+    if (
+      validateForm() &&
+      document.getElementById('imageInput').files.length !== 0
+    ) {
+      let toastId;
+      const visitImage = document.getElementById('imageInput').files[0];
+      const imageTitle = nanoid();
+
+      // visitImage.type returns 'image/jpeg' or 'image/png'. Statement below removes the 'image/' and returns the file extension
+      const imageExtension = `.${visitImage.type.slice(6)}`;
+
+      try {
+        toastId = toast.loading('Uploading...');
+        await supabase.storage
+          .from('visitimages')
+          .upload(`${imageTitle}${imageExtension}`, visitImage);
+
+        const { data, error } = await supabase.from('Visit').insert([
+          {
+            ...info,
+            image: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/visitimages/${imageTitle}${imageExtension}`,
+          },
+        ]);
+
+        if (error) {
+          throw new Error(error);
+        } else {
+          toast.dismiss(toastId);
+          toast.success('Uploaded successfully');
+          router.push('/');
+        }
+      } catch (e) {
+        toast.dismiss(toastId);
+        toast.error('Something went wrong');
+      }
+
+      setInfo({
+        id: nanoid(),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        title: '',
+        description: '',
+        location: '',
+        duration: '',
+        maxGuests: '',
+        price: '',
+        image: '',
+      });
+    } else {
+      toast.error('Please complete the form to submit');
+    }
   }
 
   return (
