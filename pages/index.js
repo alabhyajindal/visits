@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Grid from '../components/Grid';
 import Header from '../components/Header';
 import { PrismaClient } from '@prisma/client';
+import Footer from '../components/Footer';
 
 const prisma = new PrismaClient();
 
@@ -19,7 +20,6 @@ export default function Visit({ visits = [] }) {
         <title>Visits</title>
         <meta name='description' content='Visit' />
       </Head>
-      <Header />
       <Grid visits={visits} />
     </div>
   );

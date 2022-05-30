@@ -15,38 +15,36 @@ export default function ListedVisit(visit) {
         <meta name='description' content={visit?.description || ''} />
       </Head>
       <Header />
-      <div className='mx-16 lg:mx-24 xl:mx-32 mt-8'>
-        <h1 className='text-3xl lg:text-4xl font-semibold'>
-          {visit?.title || ''}
-        </h1>
+      <h1 className='text-3xl lg:text-4xl font-semibold'>
+        {visit?.title || ''}
+      </h1>
 
-        <div className='mt-2 md:mt-4 xl:mt-6 relative aspect-w-16 aspect-h-9'>
-          {visit?.image ? (
-            <Image
-              src={visit.image}
-              layout='fill'
-              objectFit='cover'
-              className='rounded-md'
-              alt={visit.title}
-            />
-          ) : null}
-        </div>
-        <p className='mt-2 md:text-lg'>{visit.description}</p>
-        <div className='mt-2 md:text-lg'>
-          <p>Location: {visit?.location || ''}</p>
-          <p>Duration: {visit?.duration || 0} hours</p>
-          <p>
-            ₹{Intl.NumberFormat('en-IN').format(visit.price)} for{' '}
-            {visit?.maxGuests || 0} visitors, or ₹
-            {Intl.NumberFormat('en-IN').format(
-              visit?.price / visit?.maxGuests || 0
-            )}{' '}
-            per head
-          </p>
-        </div>
-        <div className='mt-4'>
-          <h2 className='text-xl md:text-2xl font-medium'>Available Dates</h2>
-        </div>
+      <div className='mt-2 md:mt-4 xl:mt-6 relative aspect-w-16 aspect-h-9'>
+        {visit?.image ? (
+          <Image
+            src={visit.image}
+            layout='fill'
+            objectFit='cover'
+            className='rounded-md'
+            alt={visit.title}
+          />
+        ) : null}
+      </div>
+      <p className='mt-2 md:text-lg'>{visit.description}</p>
+      <div className='mt-2 md:text-lg'>
+        <p>Location: {visit?.location || ''}</p>
+        <p>Duration: {visit?.duration || 0} hours</p>
+        <p>
+          ₹{Intl.NumberFormat('en-IN').format(visit.price)} for{' '}
+          {visit?.maxGuests || 0} visitors, or ₹
+          {Intl.NumberFormat('en-IN').format(
+            visit?.price / visit?.maxGuests || 0
+          )}{' '}
+          per head
+        </p>
+      </div>
+      <div className='mt-4'>
+        <h2 className='text-xl md:text-2xl font-medium'>Available Dates</h2>
       </div>
     </div>
   );
