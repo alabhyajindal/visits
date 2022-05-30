@@ -1,5 +1,6 @@
 import { supabase } from '../client';
 import { useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function ProfileForm() {
   const [group, setGroup] = useState('student');
@@ -207,6 +208,7 @@ export default function ProfileForm() {
           Submit
         </button>
       </div>
+      <Toaster />
     </div>
   );
 }

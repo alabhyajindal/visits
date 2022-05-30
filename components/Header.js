@@ -36,7 +36,7 @@ export default function Header() {
     return () => {
       authListener.unsubscribe();
     };
-  });
+  }, []);
 
   // Function to show the Sign in modal when the "Sign in" button is clicked
   function showModal() {
@@ -55,9 +55,12 @@ export default function Header() {
     const userData = supabase.auth.user();
     if (userData) {
       setUser(userData);
-      if (!userData.user_metadata.category) {
-        router.push('/profile');
-      }
+
+      // Not an ideal UX to force users to fill out the profile info. They will be directed to fill out the profile data once they sign in. If they choose not to do that, then they should not be forced. Rather, we should only prompt the user to fill out the profile when they proceed to do something that requirest that data such as listing or booking a visit.
+
+      // if (Object.keys(userData.user_metadata).length === 0) {
+      //   router.push('/profile');
+      // }
     }
   }
 
