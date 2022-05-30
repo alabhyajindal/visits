@@ -1,6 +1,7 @@
 import { supabase } from '../client';
 import { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import { useRouter } from 'next/router';
 
 export default function ProfileForm() {
   const [group, setGroup] = useState('student');
@@ -16,6 +17,8 @@ export default function ProfileForm() {
     name: '',
     size: '',
   });
+
+  const router = useRouter();
 
   function updateGroup(e) {
     setGroup(e.target.value);
@@ -66,15 +69,43 @@ export default function ProfileForm() {
   }
 
   async function submitStudentInfo() {
-    const { user, error } = await supabase.auth.update({
-      data: studentInfo,
-    });
+    let toastId;
+    try {
+      toastId = toast.loading('Submitting...');
+      const { user, error } = await supabase.auth.update({
+        data: studentInfo,
+      });
+      if (error) {
+        throw new Error(error);
+      } else {
+        toast.dismiss(toastId);
+        toast.success('Submitted');
+        router.push('/explore');
+      }
+    } catch (e) {
+      toast.dismiss(toastId);
+      toast.error('Something went wrong');
+    }
   }
 
   async function submitCompanyInfo() {
-    const { user, error } = await supabase.auth.update({
-      data: companyInfo,
-    });
+    let toastId;
+    try {
+      toastId = toast.loading('Submitting...');
+      const { user, error } = await supabase.auth.update({
+        data: companyInfo,
+      });
+      if (error) {
+        throw new Error(error);
+      } else {
+        toast.dismiss(toastId);
+        toast.success('Submitted');
+        router.push('/explore');
+      }
+    } catch (e) {
+      toast.dismiss(toastId);
+      toast.error('Something went wrong');
+    }
   }
 
   function submitForm() {

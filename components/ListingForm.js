@@ -68,7 +68,7 @@ export default function ListingForm() {
           throw new Error(error);
         } else {
           toast.dismiss(toastId);
-          toast.success('Uploaded successfully');
+          toast.success('Uploaded');
           router.push('/');
         }
       } catch (e) {

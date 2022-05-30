@@ -58,7 +58,7 @@ export default function SignIn() {
           });
           setEmail('');
         }
-      } catch (err) {
+      } catch (e) {
         toast.dismiss(toastId);
         toast.error('Something went wrong');
       }

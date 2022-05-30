@@ -77,7 +77,7 @@ export default function Header() {
         toast.dismiss(toastId);
         toast.success('Signed out');
       }
-    } catch (err) {
+    } catch (e) {
       toast.dismiss(toastId);
       toast.error('Something went wrong');
     }
