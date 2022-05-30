@@ -5,11 +5,13 @@ export default function ProfileForm() {
   const [group, setGroup] = useState('student');
 
   const [studentInfo, setStudentInfo] = useState({
+    category: 'student',
     firstName: '',
     lastName: '',
   });
 
   const [companyInfo, setCompanyInfo] = useState({
+    category: 'company',
     name: '',
     size: '',
   });
