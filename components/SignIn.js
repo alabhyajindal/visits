@@ -22,6 +22,9 @@ export default function SignIn() {
     signInModal.classList.add('opacity-50');
     signInModal.classList.remove('opacity-100');
     signInModal.classList.remove('-translate-y-8');
+
+    const btn = document.getElementById('email-submit-btn');
+    btn.disabled = false;
   }
 
   function handleEmailInput(e) {
