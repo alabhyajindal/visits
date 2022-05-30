@@ -20,14 +20,14 @@ export default function ListingForm() {
 
   const router = useRouter();
 
-  const updateFormData = function (e) {
+  function updateFormData(e) {
     setInfo((prevInfo) => {
       return {
         ...prevInfo,
         [e.target.id]: e.target.value,
       };
     });
-  };
+  }
 
   async function submitForm() {
     let toastId;

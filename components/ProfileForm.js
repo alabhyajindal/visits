@@ -14,11 +14,11 @@ export default function ProfileForm() {
     size: '',
   });
 
-  const updateGroup = function (e) {
+  function updateGroup(e) {
     setGroup(e.target.value);
-  };
+  }
 
-  const updateFormData = function (e) {
+  function updateFormData(e) {
     if (group === 'student') {
       setStudentInfo((prevInfo) => {
         return {
@@ -35,9 +35,9 @@ export default function ProfileForm() {
         };
       });
     }
-  };
+  }
 
-  const continueForm = function () {
+  function continueForm() {
     const firstForm = document.getElementById('first-form');
     const userForm = document.getElementById('user-form');
     const companyForm = document.getElementById('company-form');
@@ -60,7 +60,7 @@ export default function ProfileForm() {
     submitBtn.classList.remove('hidden');
 
     document.getElementById('form-steps').textContent = 'Step 2 of 2';
-  };
+  }
 
   async function submitStudentInfo() {
     const { user, error } = await supabase.auth.update({
