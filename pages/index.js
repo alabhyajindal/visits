@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Grid from '../components/Grid';
 import { PrismaClient } from '@prisma/client';
+import Banner from '../components/Banner';
 
 const prisma = new PrismaClient();
 
@@ -18,6 +19,7 @@ export default function Visit({ visits = [] }) {
         <title>Visits</title>
         <meta name='description' content='Visit' />
       </Head>
+      <Banner />
     </div>
   );
 }
