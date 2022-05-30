@@ -1,8 +1,6 @@
 import Head from 'next/head';
 import Grid from '../components/Grid';
-import Header from '../components/Header';
 import { PrismaClient } from '@prisma/client';
-import Footer from '../components/Footer';
 
 const prisma = new PrismaClient();
 

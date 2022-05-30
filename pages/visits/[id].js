@@ -1,7 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import Head from 'next/head';
 import Image from 'next/image';
-import Header from '../../components/Header';
 
 const prisma = new PrismaClient();
 
@@ -14,7 +13,6 @@ export default function ListedVisit(visit) {
         </title>
         <meta name='description' content={visit?.description || ''} />
       </Head>
-      <Header />
       <h1 className='text-3xl lg:text-4xl font-semibold'>
         {visit?.title || ''}
       </h1>
