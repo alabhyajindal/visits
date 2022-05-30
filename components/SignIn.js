@@ -28,9 +28,9 @@ export default function SignIn() {
     const btn = document.getElementById('email-submit-btn');
     setEmail(e.target.value);
     if (!isEmail(e.target.value)) {
-      btn.classList.add('opacity-50');
+      btn.disabled = true;
     } else {
-      btn.classList.remove('opacity-50');
+      btn.disabled = false;
     }
   }
 
@@ -60,7 +60,7 @@ export default function SignIn() {
         toast.error('Something went wrong');
       }
     } else {
-      toast.error('Please enter a valid Email address');
+      toast.error('Please enter your Email address');
     }
   }
   return (
@@ -112,7 +112,7 @@ export default function SignIn() {
               id='email-submit-btn'
               type='submit'
               onClick={handleSignUp}
-              className='btn-primary'
+              className='btn-primary disabled:bg-blue-100 disabled:shadow-none disabled:active:bg-blue-100 disabled:active:scale-100'
             >
               Sign in
             </button>
