@@ -18,6 +18,7 @@ export default function Visit({ visits = [] }) {
         <title>Visits</title>
         <meta name='description' content='Visit' />
       </Head>
+      <Grid visits={visits} />
     </div>
   );
 }

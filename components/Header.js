@@ -109,14 +109,14 @@ export default function Header() {
 
       {/* Right */}
       <div className='flex gap-4 text-sm items-center'>
-        {/* We want to show the 'List a visit' option when the user registers as
-        a company. If they register as a student then we want to show the
-        'Explore' option. */}
         <Link href='/create'>
           <a>
-            <h2 className='hover:bg-gray-100 text-gray-600 px-4 py-2 rounded-md font-medium transition transform duration-200 hover:shadow-md hover:shadow-blue-200'>
-              List a visit
-            </h2>
+            <h2 className='btn-secondary'>List a visit</h2>
+          </a>
+        </Link>
+        <Link href='/explore'>
+          <a>
+            <h2 className='btn-secondary'>Explore</h2>
           </a>
         </Link>
         {!user && (
