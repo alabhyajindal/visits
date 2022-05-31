@@ -8,12 +8,16 @@ export default function Visit() {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
     if (query.get('success')) {
-      toast.success('Visit booked! You will receive an email confirmation.');
+      toast.success(
+        'Visit booked! You will receive an email confirmation shortly.',
+        { duration: 6000 }
+      );
     }
 
     if (query.get('canceled')) {
       toast.error(
-        `Order canceled, continue to explore and book a visit when you're ready.`
+        `Order canceled, continue to explore and book a visit when you're ready.`,
+        { duration: 3000 }
       );
     }
   }, []);
@@ -25,12 +29,12 @@ export default function Visit() {
         <meta name='description' content='Visit' />
       </Head>
       <Banner />
-
       {/* Explaination of the platform over multiple sections */}
-
-      {/* CTA for Companies */}
-
       {/* CTA for Students */}
+      <h1 className='text-3xl mt-4'>Find a Visit</h1>
+      {/* CTA for Companies */}
+      <h1 className='text-3xl mt-4'>List a Visit</h1>
+      <Toaster />
     </div>
   );
 }
