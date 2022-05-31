@@ -19,6 +19,7 @@ export default function Hero({ image }) {
     <div className='overflow-x-hidden -mb-14'>
       <div className='w-screen h-screen'>
         <Image
+          priority
           id='image'
           src={hero}
           layout='fill'
