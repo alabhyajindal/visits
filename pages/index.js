@@ -35,8 +35,18 @@ export default function Visit() {
       {/* Explaination of the platform over multiple sections */}
 
       <div className='flex flex-col gap-16 md:flex-row md:justify-center'>
-        <LargeCard heading='Host a Visit' sub='For Companies' image={company} />
-        <LargeCard heading='Find a Visit' sub='For Students' image={students} />
+        <LargeCard
+          heading='Host a Visit'
+          sub='For Companies'
+          image={company}
+          isCompany={true}
+        />
+        <LargeCard
+          heading='Find a Visit'
+          sub='For Students'
+          image={students}
+          isCompany={false}
+        />
       </div>
       <Toaster />
     </div>
