@@ -52,7 +52,6 @@ export default function ListedVisit(visit) {
           Book
         </button>
       </form>
-      <Toaster />
     </div>
   );
 }
