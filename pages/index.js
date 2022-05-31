@@ -1,7 +1,10 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import Banner from '../components/Banner';
+import Hero from '../components/Hero';
+import LargeCard from '../components/LargeCard';
+import company from '../public/company.jpg';
+import students from '../public/students.jpg';
 
 export default function Visit() {
   useEffect(() => {
@@ -28,12 +31,13 @@ export default function Visit() {
         <title>Visits</title>
         <meta name='description' content='Visit' />
       </Head>
-      <Banner />
+      <Hero />
       {/* Explaination of the platform over multiple sections */}
-      {/* CTA for Students */}
-      <h1 className='text-3xl mt-4'>Find a Visit</h1>
-      {/* CTA for Companies */}
-      <h1 className='text-3xl mt-4'>List a Visit</h1>
+
+      <div className='flex flex-col gap-16 md:flex-row md:justify-center'>
+        <LargeCard heading='Host a Visit' sub='For Companies' image={company} />
+        <LargeCard heading='Find a Visit' sub='For Students' image={students} />
+      </div>
       <Toaster />
     </div>
   );

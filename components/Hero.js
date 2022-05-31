@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import hero from '../public/hero.jpg';
 
-export default function Banner() {
+export default function Hero({ image }) {
   // Could be used in the CTA sections. Not relevant here since the banner is not a clickable item
   // function increaseOpacity() {
   //   const image = document.getElementById('image');
@@ -16,7 +16,7 @@ export default function Banner() {
   // }
 
   return (
-    <div className='overflow-x-hidden'>
+    <div className='overflow-x-hidden -mb-14'>
       <div className='w-screen h-screen'>
         <Image
           id='image'
