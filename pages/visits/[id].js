@@ -1,10 +1,30 @@
 import { PrismaClient } from '@prisma/client';
+import { loadStripe } from '@stripe/stripe-js';
+import { useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 
 const prisma = new PrismaClient();
 
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+);
+
 export default function ListedVisit(visit) {
+  useEffect(() => {
+    // Check to see if this is a redirect back from Checkout
+    const query = new URLSearchParams(window.location.search);
+    if (query.get('success')) {
+      console.log('Order placed! You will receive an email confirmation.');
+    }
+
+    if (query.get('canceled')) {
+      console.log(
+        'Order canceled -- continue to shop around and checkout when you’re ready.'
+      );
+    }
+  }, []);
+
   return (
     <div>
       <Head>
@@ -41,9 +61,11 @@ export default function ListedVisit(visit) {
           per head
         </p>
       </div>
-      <div className='mt-4'>
-        <h2 className='text-xl md:text-2xl font-medium'>Available Dates</h2>
-      </div>
+      <form action='/api/checkout' method='POST' className='mt-4'>
+        <button type='submit' role='link' className='btn-primary'>
+          Book
+        </button>
+      </form>
     </div>
   );
 }
