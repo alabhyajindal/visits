@@ -96,7 +96,7 @@ export default function Header() {
   return (
     <div className='shadow-md py-4 px-8 sticky inset-x-0 top-0 bg-white flex items-center justify-between z-50 '>
       {/* Left */}
-      <div className='relative h-12 w-24'>
+      <div className='relative h-10 w-20 md:h-12 md:w-24'>
         <Link href='/'>
           <a>
             <Image
@@ -111,10 +111,10 @@ export default function Header() {
       </div>
 
       {/* Right */}
-      <div className='flex gap-4 text-sm items-center'>
+      <div className='flex gap-1 md:gap-4 text-sm items-center'>
         <Link href='/create'>
           <a>
-            <h2 className='btn-secondary'>List a visit</h2>
+            <h2 className='btn-secondary'>Host</h2>
           </a>
         </Link>
         <Link href='/explore'>
