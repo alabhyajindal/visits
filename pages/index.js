@@ -74,12 +74,14 @@ export default function Visit() {
           heading='Host a Visit'
           sub='For Companies'
           image={company}
+          alt='A tall building'
           isCompany={true}
         />
         <LargeCard
           heading='Find a Visit'
           sub='For Students'
           image={students}
+          alt='A group of students listening to a lecture by their professor'
           isCompany={false}
         />
       </div>

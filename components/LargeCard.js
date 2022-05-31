@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function LargeCard({ heading, sub, image, isCompany }) {
+export default function LargeCard({ heading, sub, image, alt, isCompany }) {
   const link = isCompany ? '/create' : '/explore';
 
   return (
@@ -11,6 +11,7 @@ export default function LargeCard({ heading, sub, image, isCompany }) {
           <div className='relative w-[30rem] h-[30rem]'>
             <Image
               src={image}
+              alt={alt}
               objectFit='cover'
               layout='fill'
               className='rounded-md brightness-50 hover:opacity-95 transition transform duration-100'

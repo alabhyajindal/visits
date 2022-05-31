@@ -25,6 +25,7 @@ export default function Hero({ image }) {
           layout='fill'
           objectFit='cover'
           className='brightness-50'
+          alt='A group of students casually hanging out in their school campus'
         />
         <h1 className='absolute top-30 left-14 text-5xl md:text-5xl lg:text-6xl w-2/3 max-w-lg font-semibold text-white'>
           Streamlined industrial visit experiences for <br />
