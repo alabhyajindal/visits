@@ -34,7 +34,7 @@ export default function Visit() {
       <Hero />
 
       {/* Add an image or preferrably an illustration on the right side of the paragraph */}
-      <div className='text-lg lg:text-xl text-gray-700 flex flex-col gap-4 leading-6 mb-8 max-w-lg mx-auto'>
+      <div className='text-lg lg:text-xl text-gray-700 flex flex-col gap-4 md:gap-6 leading-6 mb-8 max-w-lg mx-auto'>
         <p>
           The current industrial visit experience is broken. When a class wants
           to organize an industrial visit the first thing they have to figure
@@ -55,7 +55,7 @@ export default function Visit() {
           </a>
           ) believe that students should spend less time on finding out their
           options and more time on choosing the perfect option for them.
-          That&rsqo;s why I created Visits &ndash; a platform where great
+          That&apos;s why I created Visits &ndash; a platform where great
           companies can list visits and students can book them.
         </p>
 

@@ -23,6 +23,8 @@ class MyDocument extends Document {
             href='/favicons/favicon-16x16.png'
           />
           <link rel='manifest' href='/favicons/site.webmanifest' />
+
+          <meta charSet='UTF-8' />
         </Head>
         <body>
           <Main />
