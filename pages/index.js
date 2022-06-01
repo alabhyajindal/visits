@@ -49,13 +49,14 @@ export default function Visit() {
             className='text-blue-500 hover:underline'
             href='https://twitter.com/alabhyajindal'
             target='_blank'
+            rel='noreferrer'
           >
             @alabhyajindal
           </a>
           ) believe that students should spend less time on finding out their
-          options and more time on choosing the perfect option for them. That's
-          why I created Visits &ndash; a platform where great companies can list
-          visits and students can book them.
+          options and more time on choosing the perfect option for them.
+          That&rsqo;s why I created Visits &ndash; a platform where great
+          companies can list visits and students can book them.
         </p>
 
         <p>
