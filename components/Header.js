@@ -123,7 +123,7 @@ export default function Header() {
           </a>
         </Link>
         {!user && (
-          <button onClick={showModal} className='btn-primary'>
+          <button onClick={showModal} id='sign-in-btn' className='btn-primary'>
             Sign in
           </button>
         )}

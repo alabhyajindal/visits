@@ -34,17 +34,17 @@ export default function Visit() {
       <Hero />
 
       {/* Add an image or preferrably an illustration on the right side of the paragraph */}
-      <div className='flex flex-col gap-4 mb-8 max-w-lg mx-8'>
+      <div className='text-lg lg:text-xl text-gray-700 flex flex-col gap-4 leading-6 mb-8 max-w-lg mx-auto'>
         <p>
           The current industrial visit experience is broken. When a class wants
-          to organize a industrial visit the first thing they have to figure out
-          is what all companies in their city actually provide visits. Even
-          finding these companies is not easy since most companies are not
-          easily reachable and there is no central directly which provides this
+          to organize an industrial visit the first thing they have to figure
+          out is what all companies in their city actually provide. Even finding
+          these companies is not easy since most companies are not easily
+          reachable and there is no central directory which provides this
           information.
         </p>
         <p>
-          An industrial visit is a crucial part of a class's curriculum. I (
+          I (
           <a
             className='text-blue-500 hover:underline'
             href='https://twitter.com/alabhyajindal'
@@ -53,19 +53,18 @@ export default function Visit() {
             @alabhyajindal
           </a>
           ) believe that students should spend less time on finding out their
-          options and more time on choosing the perfect option for them.
-        </p>
-        <p>
-          That's why I created Visits - it aims to be a platform where great
-          companies can list visits and students can book them.
+          options and more time on choosing the perfect option for them. That's
+          why I created Visits &ndash; a platform where great companies can list
+          visits and students can book them.
         </p>
 
         <p>
-          An industrial visit is a great opportunity for companies and students.
-          It offers companies a chance to attract talent, as most often, the
-          visiting students are the potential future employees of the company.
-          Students benefit from industrial visits by getting exposure to
-          real-world business practices and helps them expand their network.
+          An industrial visit is a great opportunity for both companies and
+          students. It offers companies a chance to attract talent, as most
+          often, the visiting students are the potential future employees of the
+          company. Students benefit from industrial visits by getting exposure
+          to real-world business practices and helping them expand their
+          network.
         </p>
       </div>
 
@@ -75,14 +74,12 @@ export default function Visit() {
           sub='For Companies'
           image={company}
           alt='A tall building'
-          isCompany={true}
         />
         <LargeCard
           heading='Find a Visit'
           sub='For Students'
           image={students}
           alt='A group of students listening to a lecture by their professor'
-          isCompany={false}
         />
       </div>
       <Toaster />
