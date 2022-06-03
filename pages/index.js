@@ -33,7 +33,7 @@ export default function Visit() {
       </Head>
       <Hero />
 
-      <div className='text-lg lg:text-xl text-gray-700 flex flex-col gap-4 md:gap-6 leading-6 max-w-lg mx-auto mt-8'>
+      <div className='text-lg lg:text-xl text-gray-700 flex flex-col gap-4 md:gap-6 leading-6 max-w-lg mx-auto mt-8 p-6'>
         <p>
           The current industrial visit experience is broken. When a class wants
           to organize an industrial visit the first thing they have to figure
