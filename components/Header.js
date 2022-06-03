@@ -96,19 +96,11 @@ export default function Header() {
   return (
     <div className='shadow-md py-4 px-8 sticky inset-x-0 top-0 bg-white flex items-center justify-between z-50 '>
       {/* Left */}
-      <div className='relative h-10 w-20 md:h-12 md:w-24'>
-        <Link href='/'>
-          <a>
-            <Image
-              priority
-              src={logo}
-              layout='fill'
-              objectFit='contain'
-              alt='Visits logo'
-            />
-          </a>
-        </Link>
-      </div>
+      <Link href='/'>
+        <a>
+          <img src='/logo.svg' alt='Visits logo' className='h-8 md:h-10' />
+        </a>
+      </Link>
 
       {/* Right */}
       <div className='flex gap-1 md:gap-4 text-sm items-center'>

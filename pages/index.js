@@ -33,7 +33,7 @@ export default function Visit() {
       </Head>
       <Hero />
 
-      <div className='text-lg lg:text-xl text-gray-700 flex flex-col gap-4 md:gap-6 leading-6 max-w-lg mx-auto'>
+      <div className='text-lg lg:text-xl text-gray-700 flex flex-col gap-4 md:gap-6 leading-6 max-w-lg mx-auto mt-8'>
         <p>
           The current industrial visit experience is broken. When a class wants
           to organize an industrial visit the first thing they have to figure
@@ -68,7 +68,7 @@ export default function Visit() {
         </p>
       </div>
 
-      <div className='flex flex-col gap-16 md:flex-row md:justify-center mt-8'>
+      <div className='flex flex-col gap-16 md:flex-row md:justify-center mt-8 mx-8'>
         <LargeCard
           heading='Host a Visit'
           sub='For Companies'
@@ -84,6 +84,7 @@ export default function Visit() {
           isCompany={false}
         />
       </div>
+
       <Toaster />
     </div>
   );
