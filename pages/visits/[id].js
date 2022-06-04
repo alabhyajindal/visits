@@ -1,7 +1,9 @@
+import { supabase } from '../../client';
 import { PrismaClient } from '@prisma/client';
 import { loadStripe } from '@stripe/stripe-js';
 import Head from 'next/head';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 const prisma = new PrismaClient();
 
@@ -10,8 +12,26 @@ const stripePromise = loadStripe(
 );
 
 export default function ListedVisit(visit) {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    fetchProfile();
+  }, []);
+
+  async function fetchProfile() {
+    const userData = supabase.auth.user();
+    if (userData) {
+      setUser(userData);
+    }
+  }
+
+  function clickSignIn() {
+    const signInButton = document.getElementById('sign-in-btn');
+    signInButton.click();
+  }
+
   return (
-    <div>
+    <div className='mx-8 my-8'>
       <Head>
         <title>
           {visit?.title || ''}, {visit?.location || ''} - Visits
@@ -46,11 +66,17 @@ export default function ListedVisit(visit) {
           per head
         </p>
       </div>
-      <form action='/api/checkout' method='POST' className='mt-4'>
-        <button type='submit' role='link' className='btn-primary'>
-          Book
+      {user ? (
+        <form action='/api/checkout' method='POST' className='mt-4'>
+          <button type='submit' role='link' className='btn-primary'>
+            Book
+          </button>
+        </form>
+      ) : (
+        <button onClick={clickSignIn} className='btn-primary mt-4'>
+          Sign in to Book
         </button>
-      </form>
+      )}
     </div>
   );
 }

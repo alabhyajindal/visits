@@ -18,7 +18,7 @@ export default function LargeCard({ heading, sub, image, alt, isCompany }) {
   return (
     <div
       onClick={handleClick}
-      className='flex justify-center active:scale-95 transition transform duration-75'
+      className='flex justify-center active:scale-95 transition transform duration-75 cursor-pointer'
     >
       <div className='relative w-[30rem] h-[30rem]'>
         <Image
