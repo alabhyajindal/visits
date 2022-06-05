@@ -18,6 +18,8 @@ export default function Create({ user }) {
   );
 }
 
+// Uncomment the below code to show this page only to signed in users
+
 // export async function getServerSideProps({ req }) {
 //   const { user } = await supabase.auth.api.getUserByCookie(req);
 
