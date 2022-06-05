@@ -17,6 +17,7 @@ export default function LargeCard({ heading, sub, image, alt, isCompany }) {
 
   return (
     <div
+      id='main'
       onClick={handleClick}
       className='flex justify-center active:scale-95 transition transform duration-75 cursor-pointer'
     >
@@ -36,6 +37,11 @@ export default function LargeCard({ heading, sub, image, alt, isCompany }) {
           {heading}
         </h1>
       </div>
+      <style jsx>{`
+        #main {
+          -webkit-tap-highlight-color: transparent;
+        }
+      `}</style>
     </div>
   );
 }

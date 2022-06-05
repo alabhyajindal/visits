@@ -4,7 +4,7 @@ import ListingForm from '../components/ListingForm';
 
 export default function Create({ user }) {
   return (
-    <div className='mx-8 my-8'>
+    <div className='mx-auto max-w-lg my-8'>
       <Head>
         <title>List a visit - Visits</title>
         <meta name='description' content='Visit' />
@@ -18,12 +18,12 @@ export default function Create({ user }) {
   );
 }
 
-export async function getServerSideProps({ req }) {
-  const { user } = await supabase.auth.api.getUserByCookie(req);
+// export async function getServerSideProps({ req }) {
+//   const { user } = await supabase.auth.api.getUserByCookie(req);
 
-  if (!user) {
-    return { props: {}, redirect: { destination: '/' } };
-  }
+//   if (!user) {
+//     return { props: {}, redirect: { destination: '/' } };
+//   }
 
-  return { props: { user } };
-}
+//   return { props: { user } };
+// }
