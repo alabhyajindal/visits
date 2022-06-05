@@ -4,7 +4,7 @@ import ProfileForm from '../components/ProfileForm';
 
 export default function profile({ user }) {
   return (
-    <div>
+    <div className='mx-8 my-8'>
       <Head>
         <title>Create a profile - Visits</title>
         <meta name='description' content='Visit' />

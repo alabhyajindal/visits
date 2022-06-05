@@ -104,7 +104,7 @@ export default function Header() {
 
       {/* Right */}
       <div className='flex gap-1 md:gap-4 text-sm items-center'>
-        <Link href='/create'>
+        {/* <Link href='/create'>
           <a>
             <h2 className='btn-secondary'>Host</h2>
           </a>
@@ -113,14 +113,14 @@ export default function Header() {
           <a>
             <h2 className='btn-secondary'>Explore</h2>
           </a>
-        </Link>
+        </Link> */}
         {!user && (
           <button onClick={showModal} id='sign-in-btn' className='btn-primary'>
             Sign in
           </button>
         )}
         {user && (
-          <button onClick={signOut} className='btn-primary'>
+          <button onClick={signOut} className='btn-secondary'>
             Sign out
           </button>
         )}
