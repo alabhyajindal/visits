@@ -1,11 +1,9 @@
 import { supabase } from '../client';
-import Image from 'next/image';
 import Link from 'next/link';
 import SignIn from './SignIn';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import toast, { Toaster } from 'react-hot-toast';
-import logo from '../public/logo.png';
 
 export default function Header() {
   const [user, setUser] = useState(null);
