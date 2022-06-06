@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export default function Footer() {
-  const date: number = new Date().getFullYear();
+  const date = new Date().getFullYear();
 
   return (
     <div className='bg-white border border-t-2 px-8 py-6 mt-8'>

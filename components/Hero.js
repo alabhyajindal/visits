@@ -1,4 +1,4 @@
-const Hero: React.FC = function () {
+export default function Hero() {
   return (
     <div className='overflow-x-hidden'>
       <div className='relative w-screen h-[32rem] bg-gradient-to-br from-teal-700 via-blue-600 to-fuchsia-500'>
@@ -8,6 +8,4 @@ const Hero: React.FC = function () {
       </div>
     </div>
   );
-};
-
-export default Hero;
+}
