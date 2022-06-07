@@ -11,7 +11,7 @@ export default function Footer() {
         </a>
       </Link>
       <p className='text-xs font-medium text-gray-500 mt-1'>
-        Visits &copy; {date}
+        Alabhya Jindal &copy; {date}
       </p>
     </div>
   );

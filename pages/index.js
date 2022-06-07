@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import Hero from '../components/Hero';
 import LargeCard from '../components/LargeCard';
-import Paragraph from '../components/Paragraph.tsx';
+import Paragraph from '../components/Paragraph';
 import company from '../public/company.jpg';
 import students from '../public/students.jpg';
 
