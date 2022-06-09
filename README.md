@@ -1,8 +1,6 @@
 ## Visits
 
-Visits is a serverless application that enables companies to list their industrial visit offerings which can then be booked by students. The app provides seamless magic link authentication. The user can list or book visits after they have signed in. I have worked on both the design and development of the project from scratch.
-
-Visits is created with Next.js, JavaScript, PostgreSQL, Supabase, Prisma, Tailwind CSS and Stripe.
+Visits is a serverless application that enables companies to list their industrial visit offerings which can then be booked by students. The app provides seamless magic link authentication. The user can list or book visits after they sign in.
 
 ![Screenshot the Visits homepage](https://user-images.githubusercontent.com/52493077/172766614-8fa48c9b-8424-4638-8908-834afc32b65c.png)
 
