@@ -6,7 +6,8 @@ export default function LargeCard({ heading, sub, image, alt, isCompany }) {
 
   function clickSignIn() {
     const signInButton = document.getElementById('sign-in-btn');
-    signInButton.click();
+    if (signInButton === null) router.push('/create');
+    else signInButton.click();
   }
 
   function handleClick() {
